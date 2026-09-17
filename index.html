@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GMN Store | Apple Reseller & Accesorios</title>
+    <title>GMN Store | Apple Premium Reseller & Accesorios</title>
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍏</text></svg>">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-body: #ffffff;
@@ -18,7 +18,7 @@
             --whatsapp: #25d366;
             --danger: #ff3b30;
             --border: #d2d2d7;
-            --radius-lg: 20px;
+            --radius-lg: 18px;
             --radius-md: 12px;
             --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -27,7 +27,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -40,30 +40,30 @@
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
 
-        /* Barra superior estilo OneClick */
+        /* Barra superior tipo OneClick */
         .top-announcement {
             background-color: #000000;
             color: #ffffff;
             text-align: center;
-            padding: 10px 15px;
+            padding: 10px 20px;
             font-size: 0.8rem;
             font-weight: 500;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
         }
 
-        /* Header Minimalista Apple Style */
+        /* Header Apple Style */
         header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
         }
 
-        .nav-wrap {
-            max-width: 1280px;
+        .nav-container {
+            max-width: 1300px;
             margin: 0 auto;
             padding: 16px 24px;
             display: flex;
@@ -71,13 +71,13 @@
             align-items: center;
         }
 
-        .logo-box img {
-            height: 35px;
+        .logo-area img {
+            height: 34px;
             object-fit: contain;
         }
 
         .logo-fallback {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 800;
             letter-spacing: -0.5px;
             color: #000;
@@ -85,11 +85,11 @@
 
         .nav-menu {
             display: flex;
-            gap: 28px;
+            gap: 32px;
         }
 
         .nav-menu a {
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 500;
             color: var(--text-main);
             transition: var(--transition);
@@ -97,17 +97,17 @@
 
         .nav-menu a:hover { color: var(--accent); }
 
-        .header-actions {
+        .nav-actions {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 16px;
         }
 
-        .cart-trigger-btn {
+        .cart-btn-trigger {
             background: var(--bg-surface);
             border: 1px solid var(--border);
             color: var(--text-main);
-            padding: 8px 16px;
+            padding: 8px 18px;
             border-radius: 50px;
             display: flex;
             align-items: center;
@@ -118,93 +118,117 @@
             transition: var(--transition);
         }
 
-        .cart-trigger-btn:hover {
+        .cart-btn-trigger:hover {
             border-color: var(--accent);
+            background: #fff;
         }
 
-        .cart-badge-count {
+        .cart-count-badge {
             background: var(--accent);
             color: white;
             font-size: 0.7rem;
-            padding: 2px 6px;
+            padding: 2px 7px;
             border-radius: 20px;
         }
 
-        /* Banner de Categorías / Modelos iPhone */
-        .category-quick-bar {
+        /* Barra de búsqueda / Filtrado rápido de iPhone */
+        .store-utility-bar {
             background: var(--bg-surface);
-            padding: 16px 20px;
+            padding: 14px 24px;
             border-bottom: 1px solid var(--border);
         }
 
-        .quick-bar-inner {
+        .utility-inner {
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 20px;
+            gap: 16px;
             flex-wrap: wrap;
         }
 
-        .quick-bar-inner span {
+        .utility-inner span {
             font-weight: 600;
             font-size: 0.85rem;
             color: var(--text-muted);
         }
 
-        .model-picker {
+        .device-selector {
             background: white;
             border: 1px solid var(--border);
-            padding: 8px 14px;
+            padding: 8px 16px;
             border-radius: 8px;
             font-size: 0.9rem;
             font-weight: 600;
             color: var(--text-main);
             cursor: pointer;
             outline: none;
+            transition: var(--transition);
         }
 
-        /* Hero / Banner Principal */
-        .hero-banner {
+        .device-selector:focus { border-color: var(--accent); }
+
+        /* Hero Banner Estilo OneClick / Apple */
+        .hero-section {
             background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ed 100%);
-            padding: 70px 24px;
+            padding: 80px 24px;
             text-align: center;
             border-bottom: 1px solid var(--border);
         }
 
-        .hero-banner h1 {
-            font-size: clamp(2.2rem, 4vw, 3.5rem);
+        .hero-section h1 {
+            font-size: clamp(2.4rem, 4.5vw, 3.8rem);
             font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 12px;
+            letter-spacing: -1.5px;
+            margin-bottom: 14px;
             color: var(--text-main);
         }
 
-        .hero-banner p {
-            font-size: 1.05rem;
+        .hero-section p {
+            font-size: 1.1rem;
             color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 24px;
+            max-width: 650px;
+            margin: 0 auto 28px;
         }
 
-        .hero-cta {
+        .hero-btn-action {
             background: var(--accent);
             color: white;
-            padding: 12px 28px;
+            padding: 14px 32px;
             border-radius: 30px;
             font-weight: 600;
             font-size: 0.95rem;
             display: inline-block;
             transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.25);
         }
 
-        .hero-cta:hover { background: var(--accent-hover); }
+        .hero-btn-action:hover { background: var(--accent-hover); transform: translateY(-2px); }
 
-        /* Filtros limpios */
-        .filter-row {
-            max-width: 1280px;
-            margin: 35px auto 20px;
+        /* Secciones de Beneficios (Trust badges) */
+        .benefits-strip {
+            background: white;
+            padding: 30px 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .benefits-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            text-align: center;
+        }
+
+        .benefit-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
+        .benefit-card p { font-size: 0.8rem; color: var(--text-muted); }
+
+        /* Filtros de Categorías */
+        .categories-filter-row {
+            max-width: 1300px;
+            margin: 40px auto 24px;
             padding: 0 24px;
             display: flex;
             justify-content: center;
@@ -212,11 +236,11 @@
             flex-wrap: wrap;
         }
 
-        .filter-chip {
+        .filter-tab-btn {
             background: white;
             border: 1px solid var(--border);
             color: var(--text-muted);
-            padding: 8px 18px;
+            padding: 9px 20px;
             border-radius: 20px;
             font-weight: 600;
             font-size: 0.85rem;
@@ -224,26 +248,26 @@
             transition: var(--transition);
         }
 
-        .filter-chip.active, .filter-chip:hover {
+        .filter-tab-btn.active, .filter-tab-btn:hover {
             background: #000;
             color: #fff;
             border-color: #000;
         }
 
-        /* Grilla de Productos estilo e-commerce moderno */
-        .products-section {
-            max-width: 1280px;
+        /* Grilla de Productos Principal */
+        .catalog-wrapper {
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 0 24px 80px;
+            padding: 0 24px 90px;
         }
 
-        .grid-layout {
+        .products-grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 28px;
         }
 
-        .card-product {
+        .product-card-item {
             background: #ffffff;
             border: 1px solid var(--border);
             border-radius: var(--radius-md);
@@ -254,30 +278,30 @@
             position: relative;
         }
 
-        .card-product:hover {
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border-color: #b6b6bb;
-            transform: translateY(-4px);
+        .product-card-item:hover {
+            box-shadow: 0 12px 35px rgba(0,0,0,0.09);
+            border-color: #a1a1a6;
+            transform: translateY(-5px);
         }
 
-        .product-tag {
+        .product-badge-tag {
             position: absolute;
-            top: 12px;
-            left: 12px;
+            top: 14px;
+            left: 14px;
             background: #000;
             color: #fff;
             font-size: 0.65rem;
             font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 10px;
+            padding: 5px 10px;
+            border-radius: 12px;
             z-index: 2;
             text-transform: uppercase;
         }
 
-        .product-tag.sale { background: var(--danger); }
+        .product-badge-tag.sale { background: var(--danger); }
 
-        .product-image-box {
-            height: 230px;
+        .product-visual-box {
+            height: 240px;
             background: var(--bg-surface);
             display: flex;
             align-items: center;
@@ -286,91 +310,91 @@
             padding: 20px;
         }
 
-        .product-image-box svg {
-            width: 110px;
-            height: 110px;
+        .product-visual-box svg {
+            width: 120px;
+            height: 120px;
             transition: var(--transition);
         }
 
-        .card-product:hover .product-image-box svg {
-            transform: scale(1.06);
+        .product-card-item:hover .product-visual-box svg {
+            transform: scale(1.08);
         }
 
-        .product-details {
-            padding: 20px;
+        .product-info-box {
+            padding: 22px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
 
-        .product-cat {
+        .product-category-label {
             font-size: 0.7rem;
             color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 4px;
+            letter-spacing: 0.8px;
+            margin-bottom: 6px;
             font-weight: 600;
         }
 
-        .product-name {
-            font-size: 1rem;
+        .product-title-text {
+            font-size: 1.05rem;
             font-weight: 700;
             color: var(--text-main);
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
-        .product-model-tag {
+        .product-compatibility-pill {
             font-size: 0.75rem;
             color: var(--accent);
             background: rgba(0, 102, 204, 0.08);
-            padding: 3px 8px;
+            padding: 3px 10px;
             border-radius: 6px;
             width: fit-content;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
             font-weight: 600;
         }
 
-        .product-action-row {
+        .product-bottom-row {
             margin-top: auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding-top: 14px;
+            padding-top: 16px;
             border-top: 1px solid var(--bg-surface);
         }
 
-        .price-current {
-            font-size: 1.15rem;
+        .price-current-num {
+            font-size: 1.2rem;
             font-weight: 800;
             color: var(--text-main);
         }
 
-        .price-old {
+        .price-old-num {
             font-size: 0.8rem;
             text-decoration: line-through;
             color: var(--text-muted);
             display: block;
         }
 
-        .btn-add {
+        .btn-add-to-cart {
             background: #000;
             color: white;
             border: none;
-            padding: 8px 16px;
-            border-radius: 8px;
+            padding: 9px 18px;
+            border-radius: 9px;
             font-weight: 600;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             cursor: pointer;
             transition: var(--transition);
         }
 
-        .btn-add:hover { background: var(--accent); }
+        .btn-add-to-cart:hover { background: var(--accent); }
 
-        /* Carrito Drawer Estilizado Clean */
-        .cart-overlay {
+        /* Carrito Lateral Deslizable (Drawer) */
+        .cart-overlay-bg {
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.4);
+            background: rgba(0,0,0,0.45);
             backdrop-filter: blur(4px);
             z-index: 2000;
             opacity: 0;
@@ -378,79 +402,79 @@
             transition: var(--transition);
         }
 
-        .cart-overlay.active { opacity: 1; visibility: visible; }
+        .cart-overlay-bg.active { opacity: 1; visibility: visible; }
 
-        .cart-drawer {
+        .cart-drawer-panel {
             position: fixed;
             top: 0;
             right: -420px;
             width: 100%;
-            max-width: 400px;
+            max-width: 410px;
             height: 100%;
             background: white;
             z-index: 2001;
             display: flex;
             flex-direction: column;
-            box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+            box-shadow: -15px 0 40px rgba(0,0,0,0.12);
             transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .cart-drawer.active { right: 0; }
+        .cart-drawer-panel.active { right: 0; }
 
-        .cart-header {
-            padding: 20px 24px;
+        .drawer-header {
+            padding: 22px 24px;
             border-bottom: 1px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-        .cart-header h3 { font-size: 1.1rem; font-weight: 700; }
+        .drawer-header h3 { font-size: 1.15rem; font-weight: 700; }
 
-        .cart-close {
+        .drawer-close-btn {
             background: none;
             border: none;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             cursor: pointer;
             color: var(--text-muted);
         }
 
-        .cart-items-list {
+        .drawer-items-list {
             flex: 1;
             overflow-y: auto;
-            padding: 20px 24px;
+            padding: 22px 24px;
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 16px;
         }
 
-        .cart-item-card {
+        .cart-item-row {
             display: flex;
-            gap: 12px;
+            gap: 14px;
             align-items: center;
             background: var(--bg-surface);
-            padding: 10px;
-            border-radius: 10px;
+            padding: 12px;
+            border-radius: 12px;
             border: 1px solid var(--border);
         }
 
         .cart-item-thumb {
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
             background: white;
-            border-radius: 6px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .cart-item-thumb svg { width: 25px; height: 25px; }
+        .cart-item-thumb svg { width: 28px; height: 28px; }
 
         .cart-item-info { flex: 1; }
-        .cart-item-info h4 { font-size: 0.85rem; font-weight: 600; margin-bottom: 2px; }
+        .cart-item-info h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 2px; }
         .cart-item-info span { font-size: 0.8rem; color: var(--text-muted); }
 
-        .cart-item-remove {
+        .cart-item-remove-btn {
             background: none;
             border: none;
             color: var(--danger);
@@ -459,28 +483,28 @@
             font-weight: 600;
         }
 
-        .cart-footer {
-            padding: 20px 24px;
+        .drawer-footer {
+            padding: 22px 24px;
             border-top: 1px solid var(--border);
             background: white;
         }
 
-        .cart-total-row {
+        .drawer-total-row {
             display: flex;
             justify-content: space-between;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 700;
-            margin-bottom: 16px;
+            margin-bottom: 18px;
         }
 
-        .btn-whatsapp-checkout {
+        .btn-whatsapp-order {
             width: 100%;
             background: var(--whatsapp);
             color: white;
             border: none;
-            padding: 14px;
-            border-radius: 10px;
-            font-size: 0.95rem;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 1rem;
             font-weight: 700;
             cursor: pointer;
             display: flex;
@@ -488,101 +512,106 @@
             justify-content: center;
             gap: 10px;
             transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
         }
 
-        .btn-whatsapp-checkout:hover { opacity: 0.9; }
+        .btn-whatsapp-order:hover { opacity: 0.92; }
 
-        /* Botón flotante de WhatsApp */
-        .whatsapp-float-btn {
+        /* Botón Flotante de WhatsApp (Siempre Visible) */
+        .whatsapp-floating-bubble {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
+            bottom: 30px;
+            right: 30px;
             background: var(--whatsapp);
             color: white;
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
             z-index: 1500;
             transition: var(--transition);
         }
 
-        .whatsapp-float-btn:hover { transform: scale(1.1); }
-        .whatsapp-float-btn svg { width: 34px; height: 34px; fill: white; }
+        .whatsapp-floating-bubble:hover { transform: scale(1.1); }
+        .whatsapp-floating-bubble svg { width: 36px; height: 36px; fill: white; }
 
         /* Notificación Toast */
-        #toast-alert {
+        #toast-notification-box {
             position: fixed;
-            bottom: 30px;
+            bottom: 35px;
             left: 50%;
             transform: translateX(-50%) translateY(100px);
-            background: #000;
+            background: #1d1d1f;
             color: #fff;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border-radius: 30px;
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             z-index: 3000;
             opacity: 0;
-            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.35s ease;
         }
 
-        #toast-alert.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+        #toast-notification-box.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
-        /* Footer limpio */
+        /* Footer Estilo Corporativo */
         footer {
             background: var(--bg-surface);
             border-top: 1px solid var(--border);
-            padding: 50px 24px 25px;
+            padding: 60px 24px 30px;
             text-align: center;
         }
 
-        footer p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; }
+        footer p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.7; }
 
         @media (max-width: 768px) {
             .nav-menu { display: none; }
-            .hero-banner h1 { font-size: 2.2rem; }
-            .quick-bar-inner { flex-direction: column; gap: 8px; }
+            .hero-section h1 { font-size: 2.3rem; }
+            .utility-inner { flex-direction: column; gap: 8px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Top Announcement Bar -->
     <div class="top-announcement">
-        ⚡ 3 cuotas sin interés en todos los accesorios • Envíos a todo el país
+        ⚡ 3 cuotas sin interés en todos los accesorios • Envíos seguros a todo el país
     </div>
 
     <!-- Header -->
     <header>
-        <div class="nav-wrap">
-            <div class="logo-box">
-                <img src="LOGOGMN.png" alt="GMN Store" onerror="this.style.display='none'; document.getElementById('logoText').style.display='block';">
-                <span id="logoText" class="logo-fallback" style="display:none;">GMN STORE</span>
+        <div class="nav-container">
+            <div class="logo-area">
+                <img src="LOGOGMN.png" alt="GMN Store" onerror="this.style.display='none'; document.getElementById('logoFallbackText').style.display='block';">
+                <span id="logoFallbackText" class="logo-fallback" style="display:none;">GMN STORE</span>
             </div>
 
             <nav class="nav-menu">
-                <a href="#catalogo">Accesorios iPhone</a>
+                <a href="#catalogo">Catálogo</a>
                 <a href="#fundas">Fundas MagSafe</a>
-                <a href="#cargadores">Cargadores</a>
+                <a href="#cargadores">Cargadores & Cables</a>
                 <a href="#contacto">Contacto</a>
             </nav>
 
-            <button class="cart-trigger-btn" id="openCartBtn">
-                <span>🛒 Carrito</span>
-                <span class="cart-badge-count" id="cartBadgeCount">0</span>
-            </button>
+            <div class="nav-actions">
+                <button class="cart-btn-trigger" id="openCartDrawerBtn">
+                    <span>🛒 Carrito</span>
+                    <span class="cart-count-badge" id="cartBadgeNumber">0</span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <!-- Barra de Selección de Modelo de iPhone -->
-    <div class="category-quick-bar">
-        <div class="quick-bar-inner">
-            <span>📱 Buscá accesorios para tu modelo:</span>
-            <select class="model-picker" id="iphoneModelSelect" onchange="filterProductsByModel()">
-                <option value="todos">Ver todo el catálogo</option>
+    <!-- Selector de Modelo de iPhone Dinámico -->
+    <div class="store-utility-bar">
+        <div class="utility-inner">
+            <span>📱 Seleccioná tu modelo de iPhone:</span>
+            <select class="device-selector" id="iphoneModelFilter" onchange="filterCatalogByModel()">
+                <option value="todos">Ver todo el catálogo general</option>
                 <option value="16">iPhone 16 Series</option>
                 <option value="15">iPhone 15 Series</option>
                 <option value="14">iPhone 14 Series</option>
@@ -591,71 +620,89 @@
         </div>
     </div>
 
-    <!-- Hero Banner -->
-    <section class="hero-banner">
-        <h1>Tu tienda de confianza en accesorios Apple</h1>
-        <p>Fundas MagSafe, cristales templados, cables certificados y cargadores rápidos originales.</p>
-        <a href="#catalogo" class="hero-cta">Explorar Productos</a>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <h1>Accesorios Premium para iPhone</h1>
+        <p>Diseño avanzado, máxima protección MagSafe y velocidad de carga optimizada para tu ecosistema.</p>
+        <a href="#catalogo" class="hero-btn-action">Ver Productos</a>
     </section>
 
-    <!-- Filtros por categoría -->
-    <div class="filter-row">
-        <button class="filter-chip active" onclick="setCategory('todos', event)">Todos</button>
-        <button class="filter-chip" onclick="setCategory('Fundas', event)">Fundas</button>
-        <button class="filter-chip" onclick="setCategory('Carga', event)">Cargadores</button>
-        <button class="filter-chip" onclick="setCategory('Protección', event)">Vidrios</button>
-        <button class="filter-chip" onclick="setCategory('Audio', event)">Audio</button>
-    </div>
-
-    <!-- Grilla de Productos -->
-    <section class="products-section" id="catalogo">
-        <div class="grid-layout" id="productGrid">
-            <!-- Inyectado por JS -->
+    <!-- Benefits Strip -->
+    <section class="benefits-strip">
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <h4>🚚 Envíos a todo el país</h4>
+                <p>Despachos rápidos y seguros en 24hs hábiles.</p>
+            </div>
+            <div class="benefit-card">
+                <h4>💳 Cuotas Sin Interés</h4>
+                <p>Financiación disponible con todas las tarjetas.</p>
+            </div>
+            <div class="benefit-card">
+                <h4>🛡️ Garantía de Calidad</h4>
+                <p>Productos certificados y testeados rigurosamente.</p>
+            </div>
         </div>
     </section>
 
-    <!-- Botón Flotante WhatsApp -->
-    <a href="https://wa.me/5493794345594?text=Hola!%20Quiero%20consultar%20por%20accesorios%20para%20iPhone%20en%20GMN%20Store" target="_blank" class="whatsapp-float-btn" aria-label="WhatsApp">
+    <!-- Filtros por Categoría -->
+    <div class="categories-filter-row">
+        <button class="filter-tab-btn active" onclick="switchCategory('todos', event)">Todos</button>
+        <button class="filter-tab-btn" onclick="switchCategory('Fundas', event)">Fundas</button>
+        <button class="filter-tab-btn" onclick="switchCategory('Carga', event)">Cargadores</button>
+        <button class="filter-tab-btn" onclick="switchCategory('Protección', event)">Vidrios Templados</button>
+        <button class="filter-tab-btn" onclick="switchCategory('Audio', event)">Audio</button>
+    </div>
+
+    <!-- Catálogo de Productos -->
+    <section class="catalog-wrapper" id="catalogo">
+        <div class="products-grid-container" id="productsGridRoot">
+            <!-- Inyectado dinámicamente -->
+        </div>
+    </section>
+
+    <!-- Botón Flotante de WhatsApp (Siempre Visible) -->
+    <a href="https://wa.me/5493794345594?text=Hola!%20Quiero%20consultar%20por%20accesorios%20para%20iPhone%20en%20GMN%20Store" target="_blank" class="whatsapp-floating-bubble" aria-label="WhatsApp Chat">
         <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
     </a>
 
-    <!-- Carrito Deslizable -->
-    <div class="cart-overlay" id="cartOverlay"></div>
-    <div class="cart-drawer" id="cartDrawer">
-        <div class="cart-header">
+    <!-- Carrito Deslizable (Drawer) -->
+    <div class="cart-overlay-bg" id="cartOverlayBg"></div>
+    <div class="cart-drawer-panel" id="cartDrawerPanel">
+        <div class="drawer-header">
             <h3>Tu Carrito GMN</h3>
-            <button class="cart-close" id="closeCartBtn">&times;</button>
+            <button class="drawer-close-btn" id="closeCartDrawerBtn">&times;</button>
         </div>
-        <div class="cart-items-list" id="cartItemsContainer">
+        <div class="drawer-items-list" id="drawerItemsListRoot">
             <p style="text-align:center; color: var(--text-muted); margin-top: 50px;">Tu carrito está vacío</p>
         </div>
-        <div class="cart-footer">
-            <div class="cart-total-row">
+        <div class="drawer-footer">
+            <div class="drawer-total-row">
                 <span>Subtotal:</span>
-                <span id="cartTotalPrice">$0</span>
+                <span id="drawerTotalPriceText">$0</span>
             </div>
-            <button class="btn-whatsapp-checkout" onclick="checkoutViaWhatsApp()">
+            <button class="btn-whatsapp-order" onclick="sendOrderToWhatsApp()">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
                 Finalizar pedido por WhatsApp
             </button>
         </div>
     </div>
 
-    <!-- Notificación Toast -->
-    <div id="toast-alert">¡Producto agregado al carrito!</div>
+    <!-- Toast Notification -->
+    <div id="toast-notification-box">¡Producto agregado al carrito con éxito!</div>
 
     <!-- Footer -->
     <footer>
         <div style="max-width: 1200px; margin: 0 auto;">
             <h3 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 6px; color: #000;">GMN STORE</h3>
-            <p>Especialistas en accesorios para iPhone. Ventas y atención directa por WhatsApp: <strong>+54 9 3794 34-5594</strong></p>
+            <p>Especialistas en accesorios y tecnología para iPhone. Consultas y atención directa por WhatsApp: <strong>+54 9 3794 34-5594</strong></p>
             <p style="font-size: 0.75rem; color: #a1a1a6; margin-top: 15px;">&copy; 2026 GMN Store. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- Lógica y Gráficos -->
+    <!-- Script de lógica de productos y carrito -->
     <script>
-        const products = [
+        const storeProducts = [
             {
                 id: 1,
                 title: "Funda Silicona MagSafe",
@@ -665,7 +712,7 @@
                 oldPrice: 23000,
                 tag: "Más vendido",
                 compatText: "iPhone 16 Series",
-                graphic: `<svg viewBox="0 0 100 100"><rect x="30" y="10" width="40" height="80" rx="10" fill="#111" stroke="#333" stroke-width="2"/><circle cx="50" cy="50" r="12" fill="none" stroke="#555" stroke-width="2"/></svg>`
+                graphic: `<svg viewBox="0 0 100 100"><rect x="30" y="10" width="40" height="80" rx="12" fill="#1d1d1f" stroke="#3a3a3c" stroke-width="2"/><circle cx="50" cy="50" r="14" fill="none" stroke="#636366" stroke-width="2"/></svg>`
             },
             {
                 id: 2,
@@ -676,7 +723,7 @@
                 oldPrice: null,
                 tag: "Original",
                 compatText: "Todos los iPhone",
-                graphic: `<svg viewBox="0 0 100 100"><rect x="35" y="30" width="30" height="40" rx="6" fill="#fff" stroke="#ccc" stroke-width="2"/><rect x="44" y="18" width="4" height="12" fill="#bbb"/><rect x="52" y="18" width="4" height="12" fill="#bbb"/></svg>`
+                graphic: `<svg viewBox="0 0 100 100"><rect x="35" y="28" width="30" height="42" rx="6" fill="#f5f5f7" stroke="#d2d2d7" stroke-width="2"/><rect x="43" y="16" width="4" height="12" fill="#86868b"/><rect x="53" y="16" width="4" height="12" fill="#86868b"/></svg>`
             },
             {
                 id: 3,
@@ -687,7 +734,7 @@
                 oldPrice: 21000,
                 tag: "Oferta",
                 compatText: "iPhone 15 / 15 Pro",
-                graphic: `<svg viewBox="0 0 100 100"><rect x="30" y="10" width="40" height="80" rx="10" fill="none" stroke="#0066cc" stroke-width="3"/><circle cx="50" cy="50" r="12" fill="none" stroke="#0066cc" stroke-width="2"/></svg>`
+                graphic: `<svg viewBox="0 0 100 100"><rect x="30" y="10" width="40" height="80" rx="12" fill="none" stroke="#0066cc" stroke-width="3"/><circle cx="50" cy="50" r="14" fill="none" stroke="#0066cc" stroke-width="2"/></svg>`
             },
             {
                 id: 4,
@@ -697,8 +744,8 @@
                 price: 18500,
                 oldPrice: null,
                 tag: "",
-                compatText: "Carga rápida",
-                graphic: `<svg viewBox="0 0 100 100"><path d="M25 75 Q 50 25, 75 75" fill="none" stroke="#888" stroke-width="4"/><rect x="43" y="65" width="14" height="10" rx="2" fill="#bbb"/></svg>`
+                compatText: "Carga rápida certificada",
+                graphic: `<svg viewBox="0 0 100 100"><path d="M25 75 Q 50 25, 75 75" fill="none" stroke="#86868b" stroke-width="4"/><rect x="43" y="65" width="14" height="10" rx="2" fill="#d2d2d7"/></svg>`
             },
             {
                 id: 5,
@@ -709,7 +756,7 @@
                 oldPrice: 12000,
                 tag: "Promo",
                 compatText: "iPhone 14 Series",
-                graphic: `<svg viewBox="0 0 100 100"><rect x="32" y="12" width="36" height="76" rx="8" fill="rgba(0,102,204,0.1)" stroke="#0066cc" stroke-width="2"/><circle cx="50" cy="20" r="3" fill="#0066cc"/></svg>`
+                graphic: `<svg viewBox="0 0 100 100"><rect x="32" y="12" width="36" height="76" rx="8" fill="rgba(0,102,204,0.08)" stroke="#0066cc" stroke-width="2"/><circle cx="50" cy="20" r="3" fill="#0066cc"/></svg>`
             },
             {
                 id: 6,
@@ -720,50 +767,72 @@
                 oldPrice: 54000,
                 tag: "Nuevo",
                 compatText: "Magnético Inalámbrico",
-                graphic: `<svg viewBox="0 0 100 100"><rect x="30" y="25" width="40" height="55" rx="8" fill="#e5e5ea" stroke="#ccc" stroke-width="2"/><circle cx="50" cy="52" r="10" fill="none" stroke="#888" stroke-width="2"/></svg>`
+                graphic: `<svg viewBox="0 0 100 100"><rect x="30" y="25" width="40" height="55" rx="8" fill="#e5e5ea" stroke="#d2d2d7" stroke-width="2"/><circle cx="50" cy="52" r="10" fill="none" stroke="#86868b" stroke-width="2"/></svg>`
+            },
+            {
+                id: 7,
+                title: "Auriculares Inalámbricos Pro",
+                category: "Audio",
+                model: "todos",
+                price: 65000,
+                oldPrice: 72000,
+                tag: "Destacado",
+                compatText: "Compatible con Apple Eco",
+                graphic: `<svg viewBox="0 0 100 100"><rect x="32" y="32" width="36" height="36" rx="10" fill="#f5f5f7" stroke="#d2d2d7" stroke-width="2"/><circle cx="50" cy="50" r="6" fill="#1d1d1f"/></svg>`
+            },
+            {
+                id: 8,
+                title: "Funda de Cuero Premium MagSafe",
+                category: "Fundas",
+                model: "13",
+                price: 21000,
+                oldPrice: null,
+                tag: "Premium",
+                compatText: "iPhone 13 Series",
+                graphic: `<svg viewBox="0 0 100 100"><rect x="30" y="10" width="40" height="80" rx="12" fill="#8e5b3a" stroke="#6b4424" stroke-width="2"/><circle cx="50" cy="50" r="14" fill="none" stroke="#fff" stroke-width="2"/></svg>`
             }
         ];
 
-        let cart = [];
-        let currentCategory = 'todos';
-        let currentModel = 'todos';
+        let shoppingCart = [];
+        let activeCategoryFilter = 'todos';
+        let activeModelFilter = 'todos';
 
-        const formatMoney = (amount) => {
+        const formatCurrencyARS = (amount) => {
             return new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0 }).format(amount);
         };
 
-        function renderProducts() {
-            const grid = document.getElementById('productGrid');
-            const filtered = products.filter(p => {
-                const matchCategory = (currentCategory === 'todos' || p.category === currentCategory);
-                const matchModel = (currentModel === 'todos' || p.model === currentModel || p.model === 'todos');
-                return matchCategory && matchModel;
+        function renderCatalogProducts() {
+            const rootContainer = document.getElementById('productsGridRoot');
+            const filteredList = storeProducts.filter(item => {
+                const matchesCategory = (activeCategoryFilter === 'todos' || item.category === activeCategoryFilter);
+                const matchesModel = (activeModelFilter === 'todos' || item.model === activeModelFilter || item.model === 'todos');
+                return matchesCategory && matchesModel;
             });
 
-            if (filtered.length === 0) {
-                grid.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding:50px; color:var(--text-muted);">No se encontraron productos disponibles.</div>`;
+            if (filteredList.length === 0) {
+                rootContainer.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding:60px; color:var(--text-muted);">No se encontraron productos disponibles para este filtro o modelo.</div>`;
                 return;
             }
 
-            grid.innerHTML = filtered.map(item => {
-                const tagHtml = item.tag ? `<div class="product-tag ${item.tag === 'Promo' || item.tag === 'Oferta' ? 'sale' : ''}">${item.tag}</div>` : '';
-                const priceHtml = item.oldPrice 
-                    ? `<span class="price-old">${formatMoney(item.oldPrice)}</span><span class="price-current">${formatMoney(item.price)}</span>`
-                    : `<span class="price-current">${formatMoney(item.price)}</span>`;
+            rootContainer.innerHTML = filteredList.map(prod => {
+                const badgeMarkup = prod.tag ? `<div class="product-badge-tag ${prod.tag === 'Promo' || prod.tag === 'Oferta' ? 'sale' : ''}">${prod.tag}</div>` : '';
+                const priceMarkup = prod.oldPrice 
+                    ? `<span class="price-old-num">${formatCurrencyARS(prod.oldPrice)}</span><span class="price-current-num">${formatCurrencyARS(prod.price)}</span>`
+                    : `<span class="price-current-num">${formatCurrencyARS(prod.price)}</span>`;
 
                 return `
-                    <div class="card-product">
-                        ${tagHtml}
-                        <div class="product-image-box">
-                            ${item.graphic}
+                    <div class="product-card-item">
+                        ${badgeMarkup}
+                        <div class="product-visual-box">
+                            ${prod.graphic}
                         </div>
-                        <div class="product-details">
-                            <span class="product-cat">${item.category}</span>
-                            <h3 class="product-name">${item.title}</h3>
-                            <span class="product-model-tag">${item.compatText}</span>
-                            <div class="product-action-row">
-                                <div>${priceHtml}</div>
-                                <button class="btn-add" onclick="addToCart(${item.id})">Agregar</button>
+                        <div class="product-info-box">
+                            <span class="product-category-label">${prod.category}</span>
+                            <h3 class="product-title-text">${prod.title}</h3>
+                            <span class="product-compatibility-pill">${prod.compatText}</span>
+                            <div class="product-bottom-row">
+                                <div>${priceMarkup}</div>
+                                <button class="btn-add-to-cart" onclick="addProductToCart(${prod.id})">Agregar</button>
                             </div>
                         </div>
                     </div>
@@ -771,110 +840,111 @@
             }).join('');
         }
 
-        function setCategory(category, event) {
-            currentCategory = category;
-            document.querySelectorAll('.filter-chip').forEach(btn => btn.classList.remove('active'));
+        function switchCategory(categoryName, event) {
+            activeCategoryFilter = categoryName;
+            document.querySelectorAll('.filter-tab-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
-            renderProducts();
+            renderCatalogProducts();
         }
 
-        function filterProductsByModel() {
-            currentModel = document.getElementById('iphoneModelSelect').value;
-            renderProducts();
+        function filterCatalogByModel() {
+            activeModelFilter = document.getElementById('iphoneModelFilter').value;
+            renderCatalogProducts();
         }
 
-        // Drawer
-        const overlay = document.getElementById('cartOverlay');
-        const drawer = document.getElementById('cartDrawer');
+        // Gestión del Carrito Lateral
+        const overlayBg = document.getElementById('cartOverlayBg');
+        const drawerPanel = document.getElementById('cartDrawerPanel');
 
-        document.getElementById('openCartBtn').addEventListener('click', () => {
-            overlay.classList.add('active');
-            drawer.classList.add('active');
-            updateCartUI();
+        document.getElementById('openCartDrawerBtn').addEventListener('click', () => {
+            overlayBg.classList.add('active');
+            drawerPanel.classList.add('active');
+            updateCartDrawerUI();
         });
 
-        document.getElementById('closeCartBtn').addEventListener('click', closeCartDrawer);
-        overlay.addEventListener('click', closeCartDrawer);
+        document.getElementById('closeCartDrawerBtn').addEventListener('click', closeDrawer);
+        overlayBg.addEventListener('click', closeDrawer);
 
-        function closeCartDrawer() {
-            overlay.classList.remove('active');
-            drawer.classList.remove('active');
+        function closeDrawer() {
+            overlayBg.classList.remove('active');
+            drawerPanel.classList.remove('active');
         }
 
-        function showToast() {
-            const toast = document.getElementById('toast-alert');
+        function triggerToastNotification() {
+            const toast = document.getElementById('toast-notification-box');
             toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 2200);
+            setTimeout(() => toast.classList.remove('show'), 2300);
         }
 
-        window.addToCart = (id) => {
-            const prod = products.find(p => p.id === id);
-            const existing = cart.find(i => i.id === id);
-            if (existing) {
-                existing.qty++;
+        window.addProductToCart = (productId) => {
+            const productObj = storeProducts.find(p => p.id === productId);
+            const foundInCart = shoppingCart.find(i => i.id === productId);
+            if (foundInCart) {
+                foundInCart.qty++;
             } else {
-                cart.push({ ...prod, qty: 1 });
+                shoppingCart.push({ ...productObj, qty: 1 });
             }
-            updateCartBadge();
-            showToast();
+            updateCartCounterBadge();
+            triggerToastNotification();
         };
 
-        window.removeFromCart = (id) => {
-            cart = cart.filter(i => i.id !== id);
-            updateCartUI();
-            updateCartBadge();
+        window.removeProductFromCart = (productId) => {
+            shoppingCart = shoppingCart.filter(i => i.id !== productId);
+            updateCartDrawerUI();
+            updateCartCounterBadge();
         };
 
-        function updateCartBadge() {
-            const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
-            document.getElementById('cartBadgeCount').textContent = totalCount;
+        function updateCartCounterBadge() {
+            const totalCount = shoppingCart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById('cartBadgeNumber').textContent = totalCount;
         }
 
-        function updateCartUI() {
-            const container = document.getElementById('cartItemsContainer');
-            if (cart.length === 0) {
-                container.innerHTML = `<p style="text-align:center; color: var(--text-muted); margin-top: 50px;">Tu carrito está vacío</p>`;
-                document.getElementById('cartTotalPrice').textContent = formatMoney(0);
+        function updateCartDrawerUI() {
+            const itemsListRoot = document.getElementById('drawerItemsListRoot');
+            if (shoppingCart.length === 0) {
+                itemsListRoot.innerHTML = `<p style="text-align:center; color: var(--text-muted); margin-top: 50px;">Tu carrito está vacío</p>`;
+                document.getElementById('drawerTotalPriceText').textContent = formatCurrencyARS(0);
                 return;
             }
 
-            let total = 0;
-            container.innerHTML = cart.map(item => {
-                total += item.price * item.qty;
+            let computedTotal = 0;
+            itemsListRoot.innerHTML = shoppingCart.map(item => {
+                computedTotal += item.price * item.qty;
                 return `
-                    <div class="cart-item-card">
+                    <div class="cart-item-row">
                         <div class="cart-item-thumb">
                             ${item.graphic}
                         </div>
                         <div class="cart-item-info">
                             <h4>${item.title}</h4>
-                            <span>${item.qty} x ${formatMoney(item.price)}</span>
+                            <span>${item.qty} x ${formatCurrencyARS(item.price)}</span>
                         </div>
-                        <button class="cart-item-remove" onclick="removeFromCart(${item.id})">Quitar</button>
+                        <button class="cart-item-remove-btn" onclick="removeProductFromCart(${item.id})">Quitar</button>
                     </div>
                 `;
             }).join('');
 
-            document.getElementById('cartTotalPrice').textContent = formatMoney(total);
+            document.getElementById('drawerTotalPriceText').textContent = formatCurrencyARS(computedTotal);
         }
 
-        function checkoutViaWhatsApp() {
-            if (cart.length === 0) {
+        function sendOrderToWhatsApp() {
+            if (shoppingCart.length === 0) {
                 alert("Tu carrito está vacío.");
                 return;
             }
-            let text = "Hola! Quiero realizar el siguiente pedido en *GMN Store*:%0A%0A";
-            let total = 0;
-            cart.forEach(item => {
-                text += `• ${item.qty}x ${item.title} (${formatMoney(item.price * item.qty)})%0A`;
-                total += item.price * item.qty;
+            let messageText = "Hola! Quiero realizar el siguiente pedido en *GMN Store*:%0A%0A";
+            let totalSum = 0;
+            shoppingCart.forEach(item => {
+                messageText += `• ${item.qty}x ${item.title} (${formatCurrencyARS(item.price * item.qty)})%0A`;
+                totalSum += item.price * item.qty;
             });
-            text += `%0A*Total a abonar: ${formatMoney(total)}*%0A¿Cómo coordinamos el pago y envío?`;
+            messageText += `%0A*Total a abonar: ${formatCurrencyARS(totalSum)}*%0A¿Cómo coordinamos el pago y envío?`;
             
-            window.open(`https://wa.me/5493794345594?text=${text}`, '_blank');
+            window.open(`https://wa.me/5493794345594?text=${messageText}`, '_blank');
         }
 
-        renderProducts();
+        // Renderizado inicial al cargar la página
+        renderCatalogProducts();
     </script>
 </body>
 </html>
