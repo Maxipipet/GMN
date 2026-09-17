@@ -1,31 +1,50 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GMN Store | Apple Premium Reseller & Accesorios</title>
+    <title>GMN Store | Apple Premium Reseller & Next-Gen Accessories</title>
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍏</text></svg>">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        /* --- DESIGN SYSTEM & CSS VARIABLES --- */
         :root {
-            --bg-body: #ffffff;
-            --bg-surface: #f5f5f7;
-            --bg-dark: #1d1d1f;
-            --text-main: #1d1d1f;
-            --text-muted: #86868b;
-            --accent: #0066cc;
-            --accent-hover: #004499;
+            --bg-body: #09090b;
+            --bg-surface: #121216;
+            --bg-card: #18181b;
+            --bg-glass: rgba(24, 24, 27, 0.8);
+            --text-main: #fafafa;
+            --text-muted: #a1a1aa;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --accent-glow: rgba(59, 130, 246, 0.35);
             --whatsapp: #25d366;
             --whatsapp-hover: #1ebd58;
-            --danger: #ff3b30;
-            --border: #d2d2d7;
-            --radius-lg: 20px;
-            --radius-md: 12px;
-            --shadow-sm: 0 4px 12px rgba(0,0,0,0.04);
-            --shadow-md: 0 12px 30px rgba(0,0,0,0.08);
+            --danger: #ef4444;
+            --border: #27272a;
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 10px;
+            --shadow-sm: 0 4px 20px rgba(0,0,0,0.4);
+            --shadow-lg: 0 20px 50px rgba(0,0,0,0.6);
             --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        [data-theme="light"] {
+            --bg-body: #f4f4f6;
+            --bg-surface: #ffffff;
+            --bg-card: #ffffff;
+            --bg-glass: rgba(255, 255, 255, 0.85);
+            --text-main: #18181b;
+            --text-muted: #71717a;
+            --accent: #0066cc;
+            --accent-hover: #004499;
+            --accent-glow: rgba(0, 102, 204, 0.2);
+            --border: #e4e4e7;
+            --shadow-sm: 0 4px 20px rgba(0,0,0,0.06);
+            --shadow-lg: 0 20px 40px rgba(0,0,0,0.1);
         }
 
         * {
@@ -42,65 +61,69 @@
             background-color: var(--bg-body);
             color: var(--text-main);
             line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
         button { cursor: pointer; border: none; background: none; }
 
-        /* --- 1. Top Announcement Bar --- */
-        .top-bar {
-            background-color: var(--bg-dark);
-            color: #ffffff;
+        /* --- TOP ANNOUNCEMENT TICKER --- */
+        .top-ticker {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+            color: #fff;
             text-align: center;
             padding: 10px 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            letter-spacing: 0.4px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
-        /* --- 2. Header / Navbar --- */
+        /* --- HEADER & NAVIGATION --- */
         header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.9);
+            background: var(--bg-glass);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
+            transition: var(--transition);
         }
 
         .nav-container {
-            max-width: 1320px;
+            max-width: 1380px;
             margin: 0 auto;
-            padding: 16px 24px;
+            padding: 18px 32px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 20px;
+            gap: 24px;
         }
 
         .logo-box img {
-            height: 36px;
+            height: 38px;
             object-fit: contain;
         }
 
         .logo-fallback {
-            font-size: 1.35rem;
+            font-size: 1.4rem;
             font-weight: 800;
             letter-spacing: -0.5px;
-            color: #000;
+            background: linear-gradient(135deg, var(--text-main), var(--text-muted));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .nav-search-bar {
+        .search-engine-box {
             flex: 1;
-            max-width: 400px;
+            max-width: 450px;
             position: relative;
         }
 
-        .nav-search-bar input {
+        .search-engine-box input {
             width: 100%;
-            padding: 10px 16px 10px 40px;
+            padding: 11px 18px 11px 44px;
             border-radius: 50px;
             border: 1px solid var(--border);
             background: var(--bg-surface);
@@ -110,15 +133,14 @@
             transition: var(--transition);
         }
 
-        .nav-search-bar input:focus {
+        .search-engine-box input:focus {
             border-color: var(--accent);
-            background: #fff;
-            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
+            box-shadow: 0 0 0 4px var(--accent-glow);
         }
 
-        .nav-search-bar svg {
+        .search-engine-box svg {
             position: absolute;
-            left: 14px;
+            left: 16px;
             top: 50%;
             transform: translateY(-50%);
             width: 18px;
@@ -126,148 +148,163 @@
             fill: var(--text-muted);
         }
 
-        .nav-links {
+        .nav-actions {
             display: flex;
-            gap: 24px;
             align-items: center;
+            gap: 16px;
         }
 
-        .nav-links a {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--text-main);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover { color: var(--accent); }
-
-        .cart-trigger-btn {
+        .theme-toggle-btn {
             background: var(--bg-surface);
             border: 1px solid var(--border);
             color: var(--text-main);
-            padding: 9px 18px;
-            border-radius: 50px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-weight: 600;
-            font-size: 0.85rem;
+            justify-content: center;
+            font-size: 1.1rem;
             transition: var(--transition);
         }
 
-        .cart-trigger-btn:hover { border-color: var(--accent); background: #fff; }
+        .theme-toggle-btn:hover { border-color: var(--accent); transform: scale(1.05); }
 
-        .cart-badge {
+        .cart-trigger-pill {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 10px 22px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .cart-trigger-pill:hover { border-color: var(--accent); box-shadow: 0 0 20px var(--accent-glow); }
+
+        .cart-counter-badge {
             background: var(--accent);
             color: white;
-            font-size: 0.7rem;
-            padding: 2px 7px;
+            font-size: 0.75rem;
+            padding: 2px 8px;
             border-radius: 20px;
         }
 
-        /* --- 3. Sub-Bar: iPhone Model Selector --- */
-        .utility-subbar {
+        /* --- DEVICE SELECTOR SUB-BAR --- */
+        .device-filter-bar {
             background: var(--bg-surface);
-            padding: 14px 24px;
+            padding: 16px 32px;
             border-bottom: 1px solid var(--border);
         }
 
-        .utility-inner {
+        .device-filter-inner {
             max-width: 1280px;
             margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
+            gap: 16px;
             flex-wrap: wrap;
         }
 
-        .utility-inner span {
-            font-weight: 600;
-            font-size: 0.85rem;
+        .device-filter-inner span {
+            font-weight: 700;
+            font-size: 0.9rem;
             color: var(--text-muted);
         }
 
-        .model-select-dropdown {
-            background: white;
-            border: 1px solid var(--border);
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 600;
+        .device-dropdown-advanced {
+            background: var(--bg-card);
             color: var(--text-main);
+            border: 1px solid var(--border);
+            padding: 10px 20px;
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            font-weight: 700;
             outline: none;
             cursor: pointer;
             transition: var(--transition);
         }
 
-        .model-select-dropdown:focus { border-color: var(--accent); }
+        .device-dropdown-advanced:focus { border-color: var(--accent); }
 
-        /* --- 4. Hero Section --- */
-        .hero-section {
-            background: linear-gradient(135deg, #f5f5f7 0%, #e4e4ed 100%);
-            padding: 80px 24px;
+        /* --- HERO SECTION --- */
+        .hero-master {
+            position: relative;
+            padding: 100px 24px;
             text-align: center;
+            background: radial-gradient(circle at center, var(--accent-glow) 0%, transparent 70%);
             border-bottom: 1px solid var(--border);
         }
 
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-content h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+        .hero-master h1 {
+            font-size: clamp(2.8rem, 6vw, 5rem);
             font-weight: 800;
-            letter-spacing: -1.5px;
-            margin-bottom: 14px;
-            color: var(--text-main);
+            letter-spacing: -2px;
+            margin-bottom: 18px;
+            line-height: 1.05;
         }
 
-        .hero-content p {
-            font-size: 1.1rem;
+        .hero-master h1 span {
+            background: linear-gradient(135deg, var(--accent), #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-master p {
+            font-size: 1.2rem;
             color: var(--text-muted);
-            margin-bottom: 30px;
+            max-width: 680px;
+            margin: 0 auto 35px;
         }
 
-        .hero-btn {
-            background: var(--accent);
-            color: white;
-            padding: 14px 32px;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 0.95rem;
+        .hero-cta-btn {
+            background: var(--text-main);
+            color: var(--bg-body);
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1rem;
             display: inline-block;
             transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(0,102,204,0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        .hero-btn:hover { background: var(--accent-hover); transform: translateY(-2px); }
+        .hero-cta-btn:hover {
+            background: var(--accent);
+            color: #fff;
+            transform: scale(1.05);
+            box-shadow: 0 0 35px var(--accent-glow);
+        }
 
-        /* --- 5. Features / Trust Strip --- */
-        .trust-strip {
-            background: #fff;
-            padding: 35px 24px;
+        /* --- TRUST BADGES --- */
+        .trust-metrics {
+            background: var(--bg-surface);
+            padding: 40px 24px;
             border-bottom: 1px solid var(--border);
         }
 
-        .trust-grid {
-            max-width: 1200px;
+        .metrics-grid {
+            max-width: 1300px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             text-align: center;
         }
 
-        .trust-item h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
-        .trust-item p { font-size: 0.8rem; color: var(--text-muted); }
+        .metric-card h4 { font-size: 1.05rem; font-weight: 800; margin-bottom: 6px; }
+        .metric-card p { font-size: 0.85rem; color: var(--text-muted); }
 
-        /* --- 6. Category Filter Tabs & Sorting --- */
-        .catalog-controls {
-            max-width: 1300px;
-            margin: 40px auto 25px;
-            padding: 0 24px;
+        /* --- CATALOG CONTROLS & FILTER TABS --- */
+        .catalog-engine-panel {
+            max-width: 1380px;
+            margin: 50px auto 30px;
+            padding: 0 32px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -275,55 +312,56 @@
             gap: 20px;
         }
 
-        .category-tabs {
+        .category-filter-pills {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
         }
 
-        .tab-btn {
-            background: white;
+        .pill-tab {
+            background: var(--bg-surface);
             border: 1px solid var(--border);
             color: var(--text-muted);
-            padding: 9px 20px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.85rem;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
             transition: var(--transition);
         }
 
-        .tab-btn.active, .tab-btn:hover {
-            background: #000;
-            color: #fff;
-            border-color: #000;
+        .pill-tab.active, .pill-tab:hover {
+            background: var(--text-main);
+            color: var(--bg-body);
+            border-color: var(--text-main);
         }
 
-        .sort-wrapper select {
-            background: white;
+        .sorting-engine select {
+            background: var(--bg-surface);
+            color: var(--text-main);
             border: 1px solid var(--border);
-            padding: 9px 16px;
-            border-radius: 10px;
-            font-size: 0.85rem;
-            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            font-weight: 700;
             outline: none;
             cursor: pointer;
         }
 
-        /* --- 7. Product Catalog Grid --- */
-        .catalog-section {
-            max-width: 1300px;
+        /* --- PRODUCTS GRID --- */
+        .products-showcase {
+            max-width: 1380px;
             margin: 0 auto;
-            padding: 0 24px 80px;
+            padding: 0 32px 100px;
         }
 
-        .products-grid {
+        .grid-master {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 28px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 32px;
         }
 
-        .product-card {
-            background: #ffffff;
+        .product-pod {
+            background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius-md);
             overflow: hidden;
@@ -333,144 +371,234 @@
             position: relative;
         }
 
-        .product-card:hover {
-            box-shadow: var(--shadow-md);
-            border-color: #b6b6bb;
-            transform: translateY(-5px);
+        .product-pod:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-lg);
         }
 
-        .product-tag {
+        .pod-badge {
             position: absolute;
-            top: 14px;
-            left: 14px;
-            background: #000;
+            top: 16px;
+            left: 16px;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--border);
             color: #fff;
-            font-size: 0.65rem;
-            font-weight: 700;
-            padding: 5px 10px;
-            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 6px 12px;
+            border-radius: 20px;
             z-index: 2;
             text-transform: uppercase;
         }
 
-        .product-tag.sale { background: var(--danger); }
+        .pod-badge.sale { background: var(--danger); border-color: transparent; }
 
-        .product-img-box {
-            height: 250px;
-            background: var(--bg-surface);
+        .pod-image-stage {
+            height: 280px;
+            background: radial-gradient(circle, var(--bg-surface) 0%, var(--bg-card) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            padding: 20px;
+            padding: 24px;
         }
 
-        .product-img-box svg {
-            width: 125px;
-            height: 125px;
+        .pod-image-stage svg {
+            width: 140px;
+            height: 140px;
+            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.5));
             transition: var(--transition);
         }
 
-        .product-card:hover .product-img-box svg { transform: scale(1.08); }
+        .product-pod:hover .pod-image-stage svg { transform: scale(1.1) rotate(2deg); }
 
-        .product-details {
-            padding: 22px;
+        .pod-body {
+            padding: 26px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
 
-        .product-cat {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 6px;
-            font-weight: 600;
-        }
-
-        .product-title {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 6px;
-        }
-
-        .product-compatibility {
+        .pod-category {
             font-size: 0.75rem;
             color: var(--accent);
-            background: rgba(0, 102, 204, 0.08);
-            padding: 3px 10px;
-            border-radius: 6px;
-            width: fit-content;
-            margin-bottom: 16px;
-            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 800;
+            margin-bottom: 6px;
         }
 
-        .product-footer-row {
+        .pod-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .pod-meta-pill {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            background: var(--bg-body);
+            padding: 4px 12px;
+            border-radius: 6px;
+            width: fit-content;
+            margin-bottom: 20px;
+            font-weight: 700;
+            border: 1px solid var(--border);
+        }
+
+        .pod-footer {
             margin-top: auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding-top: 16px;
-            border-top: 1px solid var(--bg-surface);
+            padding-top: 18px;
+            border-top: 1px solid var(--border);
         }
 
         .price-current {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 800;
             color: var(--text-main);
         }
 
         .price-old {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             text-decoration: line-through;
             color: var(--text-muted);
             display: block;
         }
 
-        .product-action-btns {
+        .pod-actions {
             display: flex;
             gap: 8px;
         }
 
-        .btn-quick-view {
-            background: var(--bg-surface);
+        .btn-inspect {
+            background: var(--bg-body);
             border: 1px solid var(--border);
             color: var(--text-main);
-            padding: 9px 12px;
-            border-radius: 9px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .btn-quick-view:hover { border-color: var(--text-main); }
-
-        .btn-add-cart {
-            background: #000;
-            color: white;
-            border: none;
-            padding: 9px 16px;
-            border-radius: 9px;
-            font-weight: 600;
+            padding: 10px 14px;
+            border-radius: var(--radius-sm);
             font-size: 0.85rem;
+            font-weight: 700;
             transition: var(--transition);
         }
 
-        .btn-add-cart:hover { background: var(--accent); }
+        .btn-inspect:hover { border-color: var(--accent); color: var(--accent); }
 
-        /* --- 8. Product Modal Quick View --- */
+        .btn-buy-now {
+            background: var(--text-main);
+            color: var(--bg-body);
+            border: none;
+            padding: 10px 18px;
+            border-radius: var(--radius-sm);
+            font-weight: 800;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .btn-buy-now:hover { background: var(--accent); color: #fff; transform: scale(1.03); }
+
+        /* --- 8. CLIENT REVIEWS SECTION --- */
+        .reviews-section {
+            background: var(--bg-surface);
+            padding: 90px 24px;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .reviews-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .reviews-container h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 50px;
+            letter-spacing: -1px;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .review-stars { color: #f59e0b; font-size: 1.1rem; margin-bottom: 14px; }
+        .review-text { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 20px; font-style: italic; }
+        .review-author { font-size: 0.9rem; font-weight: 800; color: var(--text-main); }
+        .review-verified { font-size: 0.75rem; color: var(--accent); margin-left: 6px; font-weight: 700; }
+
+        /* --- 9. FAQ ACCORDION --- */
+        .faq-section {
+            padding: 100px 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 45px;
+            letter-spacing: -1px;
+        }
+
+        .faq-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            margin-bottom: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-question-bar {
+            padding: 24px 30px;
+            font-size: 1.05rem;
+            font-weight: 800;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .faq-question-bar:hover { color: var(--accent); }
+
+        .faq-body-text {
+            padding: 0 30px 24px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        .faq-box.open .faq-body-text { display: block; }
+
+        /* --- 10. QUICK VIEW MODAL --- */
         .modal-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(5px);
+            background: rgba(0,0,0,0.65);
+            backdrop-filter: blur(8px);
             z-index: 2500;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 24px;
             opacity: 0;
             visibility: hidden;
             transition: var(--transition);
@@ -478,13 +606,14 @@
 
         .modal-overlay.active { opacity: 1; visibility: visible; }
 
-        .modal-content-box {
-            background: white;
+        .modal-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
             width: 100%;
-            max-width: 750px;
+            max-width: 850px;
             border-radius: var(--radius-lg);
             overflow: hidden;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.2);
+            box-shadow: var(--shadow-lg);
             position: relative;
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -492,304 +621,281 @@
             transition: var(--transition);
         }
 
-        .modal-overlay.active .modal-content-box { transform: scale(1); }
+        .modal-overlay.active .modal-card { transform: scale(1); }
 
-        .modal-img-area {
+        .modal-visual-side {
             background: var(--bg-surface);
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 40px;
+            padding: 50px;
         }
 
-        .modal-img-area svg { width: 180px; height: 180px; }
+        .modal-visual-side svg { width: 220px; height: 220px; }
 
-        .modal-info-area {
-            padding: 40px;
+        .modal-content-side {
+            padding: 50px;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
-        .modal-close-btn {
+        .modal-close-action {
             position: absolute;
             top: 20px;
             right: 20px;
             background: var(--bg-surface);
-            border: none;
-            width: 35px;
-            height: 35px;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            font-size: 1.1rem;
-            font-weight: 700;
+            font-size: 1.2rem;
+            font-weight: 800;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            transition: var(--transition);
         }
 
-        /* --- 9. FAQ Section --- */
-        .faq-section {
-            background: var(--bg-surface);
-            padding: 80px 24px;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
+        .modal-close-action:hover { background: var(--danger); color: #fff; border-color: transparent; }
 
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-container h2 {
-            text-align: center;
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 40px;
-        }
-
-        .faq-item {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            margin-bottom: 15px;
-            overflow: hidden;
-        }
-
-        .faq-question {
-            padding: 20px 24px;
-            font-size: 1rem;
-            font-weight: 700;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .faq-answer {
-            padding: 0 24px 20px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            display: none;
-        }
-
-        .faq-item.open .faq-answer { display: block; }
-
-        /* --- 10. Slide-Out Cart Drawer --- */
-        .cart-overlay {
+        /* --- 11. SLIDE-OUT CART DRAWER --- */
+        .cart-overlay-layer {
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.45);
-            backdrop-filter: blur(4px);
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(6px);
             z-index: 2000;
             opacity: 0;
             visibility: hidden;
             transition: var(--transition);
         }
 
-        .cart-overlay.active { opacity: 1; visibility: visible; }
+        .cart-overlay-layer.active { opacity: 1; visibility: visible; }
 
-        .cart-drawer {
+        .cart-drawer-panel {
             position: fixed;
             top: 0;
-            right: -450px;
+            right: -480px;
             width: 100%;
-            max-width: 420px;
+            max-width: 450px;
             height: 100%;
-            background: white;
+            background: var(--bg-card);
+            border-left: 1px solid var(--border);
             z-index: 2001;
             display: flex;
             flex-direction: column;
-            box-shadow: -15px 0 40px rgba(0,0,0,0.12);
+            box-shadow: -20px 0 60px rgba(0,0,0,0.5);
             transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .cart-drawer.active { right: 0; }
+        .cart-drawer-panel.active { right: 0; }
 
-        .cart-header {
-            padding: 22px 24px;
+        .drawer-top-bar {
+            padding: 26px 30px;
             border-bottom: 1px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-        .cart-header h3 { font-size: 1.15rem; font-weight: 700; }
+        .drawer-top-bar h3 { font-size: 1.3rem; font-weight: 800; }
 
-        .cart-close {
+        .drawer-close-btn {
             background: none;
             border: none;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             cursor: pointer;
             color: var(--text-muted);
+            transition: var(--transition);
         }
 
-        .cart-items-list {
+        .drawer-close-btn:hover { color: var(--text-main); }
+
+        /* Shipping Progress Bar */
+        .shipping-progress-box {
+            background: var(--bg-surface);
+            padding: 16px 30px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .shipping-text { font-size: 0.82rem; font-weight: 700; margin-bottom: 8px; color: var(--text-muted); }
+        .progress-track { width: 100%; height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; }
+        .progress-fill { height: 100%; background: var(--accent); width: 0%; transition: width 0.4s ease; }
+
+        .drawer-item-scroller {
             flex: 1;
             overflow-y: auto;
-            padding: 22px 24px;
+            padding: 24px 30px;
             display: flex;
             flex-direction: column;
             gap: 16px;
         }
 
-        .cart-item-row {
+        .cart-row-card {
             display: flex;
-            gap: 14px;
+            gap: 16px;
             align-items: center;
             background: var(--bg-surface);
-            padding: 12px;
-            border-radius: 12px;
+            padding: 14px;
+            border-radius: var(--radius-sm);
             border: 1px solid var(--border);
         }
 
-        .cart-item-thumb {
-            width: 50px;
-            height: 50px;
-            background: white;
+        .cart-thumb-box {
+            width: 55px;
+            height: 55px;
+            background: var(--bg-card);
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .cart-item-thumb svg { width: 28px; height: 28px; }
+        .cart-thumb-box svg { width: 32px; height: 32px; }
 
-        .cart-item-info { flex: 1; }
-        .cart-item-info h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 2px; }
-        .cart-item-info span { font-size: 0.8rem; color: var(--text-muted); }
+        .cart-row-details { flex: 1; }
+        .cart-row-details h4 { font-size: 0.95rem; font-weight: 800; margin-bottom: 2px; }
+        .cart-row-details span { font-size: 0.82rem; color: var(--text-muted); }
 
-        .qty-controls {
+        .qty-stepper {
             display: flex;
             align-items: center;
-            gap: 8px;
-            margin-top: 6px;
+            gap: 10px;
+            margin-top: 8px;
         }
 
-        .qty-btn {
-            width: 22px;
-            height: 22px;
-            background: #fff;
+        .stepper-btn {
+            width: 24px;
+            height: 24px;
+            background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 4px;
-            font-weight: 700;
+            border-radius: 6px;
+            font-weight: 800;
+            color: var(--text-main);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            transition: var(--transition);
         }
 
-        .cart-item-remove {
+        .stepper-btn:hover { border-color: var(--accent); }
+
+        .btn-trash-item {
             background: none;
             border: none;
             color: var(--danger);
             cursor: pointer;
-            font-size: 0.8rem;
-            font-weight: 600;
+            font-size: 0.85rem;
+            font-weight: 700;
         }
 
-        .cart-footer {
-            padding: 22px 24px;
+        .drawer-bottom-bar {
+            padding: 26px 30px;
             border-top: 1px solid var(--border);
-            background: white;
+            background: var(--bg-card);
         }
 
-        .cart-total-row {
+        .drawer-subtotal-line {
             display: flex;
             justify-content: space-between;
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 18px;
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 20px;
         }
 
-        .btn-whatsapp-checkout {
+        .btn-checkout-wa {
             width: 100%;
             background: var(--whatsapp);
             color: white;
             border: none;
-            padding: 15px;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 700;
+            padding: 16px;
+            border-radius: var(--radius-sm);
+            font-size: 1.05rem;
+            font-weight: 800;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
             transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
         }
 
-        .btn-whatsapp-checkout:hover { background: var(--whatsapp-hover); }
+        .btn-checkout-wa:hover { background: var(--whatsapp-hover); transform: translateY(-2px); }
 
-        /* --- 11. Floating WhatsApp Button --- */
-        .whatsapp-floating {
+        /* --- 12. FLOATING WHATSAPP BUTTON --- */
+        .whatsapp-fixed-float {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 35px;
+            right: 35px;
             background: var(--whatsapp);
             color: white;
-            width: 65px;
-            height: 65px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+            box-shadow: 0 10px 35px rgba(37, 211, 102, 0.5);
             z-index: 1500;
             transition: var(--transition);
         }
 
-        .whatsapp-floating:hover { transform: scale(1.1); background: var(--whatsapp-hover); }
-        .whatsapp-floating svg { width: 36px; height: 36px; fill: white; }
+        .whatsapp-fixed-float:hover { transform: scale(1.12) rotate(10deg); background: var(--whatsapp-hover); }
+        .whatsapp-fixed-float svg { width: 38px; height: 38px; fill: white; }
 
-        /* --- 12. Toast Notification --- */
-        #toast-alert {
+        /* --- 13. TOAST NOTIFICATION --- */
+        #toast-master {
             position: fixed;
-            bottom: 35px;
+            bottom: 40px;
             left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: var(--bg-dark);
-            color: #fff;
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 0.9rem;
+            transform: translateX(-50%) translateY(120px);
+            background: var(--text-main);
+            color: var(--bg-body);
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.95rem;
             z-index: 3000;
             opacity: 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: all 0.35s ease;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        #toast-alert.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+        #toast-master.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
-        /* --- 13. Footer --- */
+        /* --- 14. FOOTER --- */
         footer {
             background: var(--bg-surface);
             border-top: 1px solid var(--border);
-            padding: 60px 24px 30px;
+            padding: 80px 32px 40px;
             text-align: center;
         }
 
-        footer p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.7; }
+        footer p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.8; max-width: 600px; margin: 0 auto; }
 
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero-content h1 { font-size: 2.3rem; }
-            .utility-inner { flex-direction: column; gap: 8px; }
-            .modal-content-box { grid-template-columns: 1fr; }
-            .modal-img-area { padding: 20px; height: 200px; }
+            .nav-container { padding: 14px 20px; }
+            .search-engine-box { display: none; }
+            .hero-master h1 { font-size: 2.5rem; }
+            .device-filter-inner { flex-direction: column; gap: 8px; }
+            .modal-card { grid-template-columns: 1fr; }
+            .modal-visual-side { padding: 30px; height: 220px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. Top Announcement Bar -->
-    <div class="top-bar">
-        ⚡ 3 cuotas sin interés en todos los accesorios • Envíos rápidos y seguros a todo el país
+    <!-- Top Announcement Ticker -->
+    <div class="top-ticker">
+        🔥 3 cuotas sin interés con todas las tarjetas + Envío Gratis en compras superiores a $50.000
     </div>
 
-    <!-- 2. Header -->
+    <!-- Header Navigation -->
     <header>
         <div class="nav-container">
             <div class="logo-area">
@@ -797,30 +903,28 @@
                 <span id="logoFallbackText" class="logo-fallback" style="display:none;">GMN STORE</span>
             </div>
 
-            <!-- Buscador en tiempo real -->
-            <div class="nav-search-bar">
+            <!-- Predictice Live Search Engine -->
+            <div class="search-engine-box">
                 <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-                <input type="text" id="searchInput" placeholder="Buscar fundas, cargadores, vidrios..." oninput="handleSearchInput()">
+                <input type="text" id="liveSearchInput" placeholder="Buscar fundas MagSafe, cargadores 20W..." oninput="handleSearchQuery()">
             </div>
 
-            <nav class="nav-links">
-                <a href="#catalogo">Catálogo</a>
-                <a href="#faq">Preguntas Frecuentes</a>
-            </nav>
-
-            <button class="cart-trigger-btn" id="openCartBtn">
-                <span>🛒 Carrito</span>
-                <span class="cart-badge" id="cartBadgeCount">0</span>
-            </button>
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleThemeMode()" title="Cambiar Tema">🌙</button>
+                <button class="cart-trigger-pill" id="openCartDrawerBtn">
+                    <span>🛒 Carrito</span>
+                    <span class="cart-counter-badge" id="cartBadgeCount">0</span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <!-- 3. Sub-Bar: iPhone Model Selector -->
-    <div class="utility-subbar">
-        <div class="utility-inner">
-            <span>📱 Filtrar catálogo por modelo de iPhone:</span>
-            <select class="model-select-dropdown" id="modelFilterSelect" onchange="filterCatalog()">
-                <option value="todos">Ver todo el catálogo general</option>
+    <!-- Device Compatibility Sub-Bar -->
+    <div class="device-filter-bar">
+        <div class="device-filter-inner">
+            <span>📱 Filtrar accesorios por modelo de iPhone:</span>
+            <select class="device-dropdown-advanced" id="deviceModelSelect" onchange="applyDeviceFilter()">
+                <option value="todos">✨ Ver todo el catálogo general</option>
                 <option value="16">iPhone 16 Series</option>
                 <option value="15">iPhone 15 Series</option>
                 <option value="14">iPhone 14 Series</option>
@@ -829,44 +933,44 @@
         </div>
     </div>
 
-    <!-- 4. Hero Section -->
-    <section class="hero-section">
+    <!-- Hero Master Section -->
+    <section class="hero-master">
         <div class="hero-content">
-            <h1>Accesorios de Alta Gama para iPhone</h1>
-            <p>Diseño avanzado, máxima protección MagSafe y velocidad de carga optimizada para tu ecosistema Apple.</p>
-            <a href="#catalogo" class="hero-btn">Explorar Productos</a>
+            <h1>Tecnología y Estilo <span>para tu iPhone</span></h1>
+            <p>Accesorios de máxima calidad, conectividad magnética MagSafe y potencia superior diseñada para tu ecosistema.</p>
+            <a href="#catalogo" class="hero-cta-btn">Explorar Catálogo Completo</a>
         </div>
     </section>
 
-    <!-- 5. Trust Badges Strip -->
-    <section class="trust-strip">
-        <div class="trust-grid">
-            <div class="trust-item">
-                <h4>🚚 Envíos a todo el país</h4>
-                <p>Despachos rápidos y seguros en 24hs hábiles.</p>
+    <!-- Trust Metrics Strip -->
+    <section class="trust-metrics">
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <h4>🚀 Envíos a todo el país</h4>
+                <p>Despacho inmediato en 24 horas hábiles.</p>
             </div>
-            <div class="trust-item">
-                <h4>💳 Cuotas Sin Interés</h4>
-                <p>Financiación disponible con todas las tarjetas.</p>
+            <div class="metric-card">
+                <h4>💳 3 Cuotas Sin Interés</h4>
+                <p>Disponible con todas las tarjetas de crédito.</p>
             </div>
-            <div class="trust-item">
-                <h4>🛡️ Garantía de Calidad</h4>
-                <p>Productos certificados y testeados rigurosamente.</p>
+            <div class="metric-card">
+                <h4>🛡️ Garantía Oficial GMN</h4>
+                <p>Productos certificados y rigurosamente testeados.</p>
             </div>
         </div>
     </section>
 
-    <!-- 6. Catalog Controls (Categories & Sorting) -->
-    <div class="catalog-controls" id="catalogo">
-        <div class="category-tabs">
-            <button class="tab-btn active" onclick="setCategory('todos', event)">Todos</button>
-            <button class="tab-btn" onclick="setCategory('Fundas', event)">Fundas</button>
-            <button class="tab-btn" onclick="setCategory('Carga', event)">Cargadores</button>
-            <button class="tab-btn" onclick="setCategory('Protección', event)">Vidrios Templados</button>
-            <button class="tab-btn" onclick="setCategory('Audio', event)">Audio</button>
+    <!-- Catalog Engine Controls -->
+    <div class="catalog-engine-panel" id="catalogo">
+        <div class="category-filter-pills">
+            <button class="pill-tab active" onclick="setCategoryTab('todos', event)">Todos</button>
+            <button class="pill-tab" onclick="setCategoryTab('Fundas', event)">Fundas MagSafe</button>
+            <button class="pill-tab" onclick="setCategoryTab('Carga', event)">Cargadores & Cables</button>
+            <button class="pill-tab" onclick="setCategory('Protección', event)">Vidrios Templados</button>
+            <button class="pill-tab" onclick="setCategory('Audio', event)">Audio</button>
         </div>
-        <div class="sort-wrapper">
-            <select id="sortSelect" onchange="sortCatalog()">
+        <div class="sorting-engine">
+            <select id="sortEngineSelect" onchange="sortCatalogEngine()">
                 <option value="default">Ordenar por: Destacados</option>
                 <option value="low-high">Precio: Menor a Mayor</option>
                 <option value="high-low">Precio: Mayor a Menor</option>
@@ -874,90 +978,122 @@
         </div>
     </div>
 
-    <!-- 7. Product Catalog Grid -->
-    <section class="catalog-section">
-        <div class="products-grid" id="productsGridContainer">
-            <!-- Inyectado dinámicamente -->
+    <!-- Main Products Showcase -->
+    <section class="products-showcase">
+        <div class="grid-master" id="productsGridMaster">
+            <!-- Inyectado dinámicamente mediante JS avanzado -->
         </div>
     </section>
 
-    <!-- 8. FAQ Section -->
+    <!-- Verified Client Reviews Section -->
+    <section class="reviews-section">
+        <div class="reviews-container">
+            <h2>Lo que dicen nuestros clientes</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"La funda MagSafe calza perfecta en el iPhone 16 Pro y el imán agarra con muchísima fuerza. El envío llegó súper rápido a Corrientes."</p>
+                    <span class="review-author">Lucas M.</span><span class="review-verified">✓ Compra verificada</span>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Compré el cargador de 20W y un cable mallado. Carga rapidísimo y se nota que es de excelente calidad. Excelente atención por WhatsApp."</p>
+                    <span class="review-author">Sofía R.</span><span class="review-verified">✓ Compra verificada</span>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Muy recomendable GMN Store. Los precios son competitivos, pude pagar en cuotas y el soporte respondió al instante."</p>
+                    <span class="review-author">Esteban G.</span><span class="review-verified">✓ Compra verificada</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
     <section class="faq-section" id="faq">
-        <div class="faq-container">
-            <h2>Preguntas Frecuentes</h2>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">¿Los productos son originales y compatibles con MagSafe? <span>+</span></div>
-                <div class="faq-answer">Sí, todos nuestros accesorios cuentan con certificación de compatibilidad y tecnología magnética MagSafe de alta precisión garantizada.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">¿Cuáles son los métodos de pago disponibles? <span>+</span></div>
-                <div class="faq-answer">Podés abonar con tarjetas de crédito en cuotas sin interés, transferencia bancaria o tarjetas de débito a través de plataformas seguras.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">¿Cómo se coordina el envío una vez realizada la compra? <span>+</span></div>
-                <div class="faq-answer">Al hacer clic en "Finalizar pedido por WhatsApp", tu carrito se enviará formateado directamente a nuestro chat de atención al cliente (+54 9 3794 34-5594) donde coordinamos el pago y el envío a domicilio.</div>
-            </div>
+        <h2>Preguntas Frecuentes</h2>
+        <div class="faq-box">
+            <div class="faq-question-bar" onclick="toggleFaqAccordion(this)">¿Los accesorios son compatibles con MagSafe? <span>+</span></div>
+            <div class="faq-body-text">Sí, todos nuestros productos de la línea MagSafe cuentan con anillos magnéticos de neodimio integrados de alta potencia, garantizando alineación perfecta con cargadores y soportes inalámbricos.</div>
+        </div>
+        <div class="faq-box">
+            <div class="faq-question-bar" onclick="toggleFaqAccordion(this)">¿Cómo funciona el proceso de compra por WhatsApp? <span>+</span></div>
+            <div class="faq-body-text">Al armar tu carrito y hacer clic en el botón verde de WhatsApp, se generará un mensaje estructurado con todo tu pedido detallado y el total. Nos lo enviás y coordinamos el pago y el envío al instante.</div>
+        </div>
+        <div class="faq-box">
+            <div class="faq-question-bar" onclick="toggleFaqAccordion(this)">¿Realizan envíos a todo el país? <span>+</span></div>
+            <div class="faq-body-text">Sí, despachamos todos los días hábiles a través de correo privado con número de seguimiento online para que sepas exactamente cuándo llega tu paquete.</div>
         </div>
     </section>
 
-    <!-- 9. Quick View Modal -->
+    <!-- Quick View Modal Component -->
     <div class="modal-overlay" id="quickViewModal">
-        <div class="modal-content-box">
-            <button class="modal-close-btn" onclick="closeModal()">&times;</button>
-            <div class="modal-img-area" id="modalGraphicBox"></div>
-            <div class="modal-info-area">
-                <span class="product-cat" id="modalCategory"></span>
-                <h2 id="modalTitle" style="font-size: 1.4rem; font-weight: 800; margin-bottom: 8px;"></h2>
-                <div id="modalCompat" class="product-compatibility" style="margin-bottom: 12px;"></div>
-                <p id="modalDesc" style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">Diseñado con materiales premium para ofrecer máxima protección contra impactos, rayones y desgaste diario sin perder el estilo minimalista.</p>
-                <div id="modalPrice" style="font-size: 1.4rem; font-weight: 800; margin-bottom: 20px;"></div>
-                <button class="btn-add-cart" id="modalAddBtn" style="padding: 12px 24px; font-size: 0.95rem;">Agregar al Carrito</button>
+        <div class="modal-card">
+            <button class="modal-close-action" onclick="closeQuickModal()">&times;</button>
+            <div class="modal-visual-side" id="modalGraphicContainer"></div>
+            <div class="modal-content-side">
+                <span class="pod-category" id="modalCategoryLabel"></span>
+                <h2 id="modalTitleText" style="font-size: 1.6rem; font-weight: 800; margin-bottom: 8px;"></h2>
+                <div id="modalCompatPill" class="pod-meta-pill" style="margin-bottom: 14px;"></div>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px;">Fabricado con polímeros de alta resistencia y acabado suave al tacto. Protege tu dispositivo contra caídas severas manteniendo un perfil estético impecable.</p>
+                <div id="modalPriceVal" style="font-size: 1.5rem; font-weight: 800; margin-bottom: 25px;"></div>
+                <button class="hero-cta-btn" id="modalAddToCartAction" style="width: 100%; text-align: center; padding: 14px;">Agregar al Carrito</button>
             </div>
         </div>
     </div>
 
-    <!-- 10. Slide-Out Cart Drawer -->
-    <div class="cart-overlay" id="cartOverlayBg"></div>
-    <div class="cart-drawer" id="cartDrawerPanel">
-        <div class="cart-header">
+    <!-- Slide-Out Cart Drawer -->
+    <div class="cart-overlay-layer" id="cartOverlayLayer"></div>
+    <div class="cart-drawer-panel" id="cartDrawerPanel">
+        <div class="drawer-top-bar">
             <h3>Tu Carrito GMN</h3>
-            <button class="cart-close" id="closeCartDrawerBtn">&times;</button>
+            <button class="drawer-close-btn" id="closeCartDrawerBtn">&times;</button>
         </div>
-        <div class="cart-items-list" id="cartItemsListContainer">
-            <p style="text-align:center; color: var(--text-muted); margin-top: 50px;">Tu carrito está vacío</p>
-        </div>
-        <div class="cart-footer">
-            <div class="cart-total-row">
-                <span>Subtotal:</span>
-                <span id="cartSubtotalAmount">$0</span>
+        
+        <!-- Free Shipping Progress Tracker -->
+        <div class="shipping-progress-box">
+            <div class="shipping-text" id="shippingProgressText">¡Estás a $50.000 del Envío Gratis!</div>
+            <div class="progress-track">
+                <div class="progress-fill" id="shippingProgressFill"></div>
             </div>
-            <button class="btn-whatsapp-checkout" onclick="checkoutToWhatsApp()">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        </div>
+
+        <div class="drawer-item-scroller" id="cartItemsScrollerContainer">
+            <p style="text-align:center; color: var(--text-muted); margin-top: 60px;">Tu carrito está vacío</p>
+        </div>
+
+        <div class="drawer-bottom-bar">
+            <div class="drawer-subtotal-line">
+                <span>Subtotal:</span>
+                <span id="drawerSubtotalAmountText">$0</span>
+            </div>
+            <button class="btn-checkout-wa" onclick="executeWhatsAppCheckout()">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
                 Finalizar pedido por WhatsApp
             </button>
         </div>
     </div>
 
-    <!-- 11. Floating WhatsApp Button -->
-    <a href="https://wa.me/5493794345594?text=Hola!%20Quiero%20consultar%20por%20accesorios%20para%20iPhone%20en%20GMN%20Store" target="_blank" class="whatsapp-floating" aria-label="WhatsApp Chat">
+    <!-- Floating WhatsApp Bubble -->
+    <a href="https://wa.me/5493794345594?text=Hola!%20Quiero%20consultar%20por%20accesorios%20para%20iPhone%20en%20GMN%20Store" target="_blank" class="whatsapp-fixed-float" aria-label="WhatsApp Chat">
         <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
     </a>
 
-    <!-- 12. Toast Notification -->
-    <div id="toast-alert">¡Producto agregado al carrito!</div>
+    <!-- Toast Notification System -->
+    <div id="toast-master">¡Producto agregado al carrito con éxito!</div>
 
-    <!-- 13. Footer -->
+    <!-- Footer Master -->
     <footer>
         <div style="max-width: 1200px; margin: 0 auto;">
-            <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 8px; color: #000;">GMN STORE</h3>
+            <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 8px; color: var(--text-main);">GMN STORE</h3>
             <p>Especialistas en accesorios y tecnología para iPhone. Consultas y atención directa por WhatsApp: <strong>+54 9 3794 34-5594</strong></p>
-            <p style="font-size: 0.75rem; color: #a1a1a6; margin-top: 15px;">&copy; 2026 GMN Store. Todos los derechos reservados.</p>
+            <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 20px;">&copy; 2026 GMN Store. Todos los derechos reservados. Desarrollado con estándar de alta gama.</p>
         </div>
     </footer>
 
-    <!-- JavaScript Application Logic -->
+    <!-- JAVASCRIPT MASTER CORE ENGINE -->
     <script>
-        const storeDatabase = [
+        const masterDatabase = [
             {
                 id: 1,
                 title: "Funda Silicona MagSafe Black",
@@ -967,7 +1103,7 @@
                 oldPrice: 23000,
                 tag: "Más vendido",
                 compatText: "iPhone 16 Series",
-                graphic: `<svg viewBox="0 0 100 100"><rect x="30" y="10" width="40" height="80" rx="12" fill="#1d1d1f" stroke="#3a3a3c" stroke-width="2"/><circle cx="50" cy="50" r="14" fill="none" stroke="#636366" stroke-width="2"/></svg>`
+                graphic: `<svg viewBox="0 0 100 100"><rect x="30" y="10" width="40" height="80" rx="12" fill="#27272a" stroke="#3f3f46" stroke-width="2"/><circle cx="50" cy="50" r="14" fill="none" stroke="#71717a" stroke-width="2"/></svg>`
             },
             {
                 id: 2,
@@ -978,7 +1114,7 @@
                 oldPrice: null,
                 tag: "Original",
                 compatText: "Todos los iPhone",
-                graphic: `<svg viewBox="0 0 100 100"><rect x="35" y="28" width="30" height="42" rx="6" fill="#f5f5f7" stroke="#d2d2d7" stroke-width="2"/><rect x="43" y="16" width="4" height="12" fill="#86868b"/><rect x="53" y="16" width="4" height="12" fill="#86868b"/></svg>`
+                graphic: `<svg viewBox="0 0 100 100"><rect x="35" y="28" width="30" height="42" rx="6" fill="#f4f4f5" stroke="#d4d4d8" stroke-width="2"/><rect x="43" y="16" width="4" height="12" fill="#a1a1aa"/><rect x="53" y="16" width="4" height="12" fill="#a1a1aa"/></svg>`
             },
             {
                 id: 3,
@@ -989,7 +1125,7 @@
                 oldPrice: 21000,
                 tag: "Oferta",
                 compatText: "iPhone 15 / 15 Pro",
-                graphic: `<svg viewBox="0 0 100 100"><rect x="30" y="10" width="40" height="80" rx="12" fill="none" stroke="#0066cc" stroke-width="3"/><circle cx="50" cy="50" r="14" fill="none" stroke="#0066cc" stroke-width="2"/></svg>`
+                graphic: `<svg viewBox="0 0 100 100"><rect x="30" y="10" width="40" height="80" rx="12" fill="none" stroke="#3b82f6" stroke-width="3"/><circle cx="50" cy="50" r="14" fill="none" stroke="#3b82f6" stroke-width="2"/></svg>`
             },
             {
                 id: 4,
@@ -1000,7 +1136,7 @@
                 oldPrice: null,
                 tag: "",
                 compatText: "Carga rápida certificada",
-                graphic: `<svg viewBox="0 0 100 100"><path d="M25 75 Q 50 25, 75 75" fill="none" stroke="#86868b" stroke-width="4"/><rect x="43" y="65" width="14" height="10" rx="2" fill="#d2d2d7"/></svg>`
+                graphic: `<svg viewBox="0 0 100 100"><path d="M25 75 Q 50 25, 75 75" fill="none" stroke="#a1a1aa" stroke-width="4"/><rect x="43" y="65" width="14" height="10" rx="2" fill="#d4d4d8"/></svg>`
             },
             {
                 id: 5,
@@ -1011,7 +1147,7 @@
                 oldPrice: 12000,
                 tag: "Promo",
                 compatText: "iPhone 14 Series",
-                graphic: `<svg viewBox="0 0 100 100"><rect x="32" y="12" width="36" height="76" rx="8" fill="rgba(0,102,204,0.08)" stroke="#0066cc" stroke-width="2"/><circle cx="50" cy="20" r="3" fill="#0066cc"/></svg>`
+                graphic: `<svg viewBox="0 0 100 100"><rect x="32" y="12" width="36" height="76" rx="8" fill="rgba(59,130,246,0.15)" stroke="#3b82f6" stroke-width="2"/><circle cx="50" cy="20" r="3" fill="#3b82f6"/></svg>`
             },
             {
                 id: 6,
@@ -1022,7 +1158,7 @@
                 oldPrice: 54000,
                 tag: "Nuevo",
                 compatText: "Magnético Inalámbrico",
-                graphic: `<svg viewBox="0 0 100 100"><rect x="30" y="25" width="40" height="55" rx="8" fill="#e5e5ea" stroke="#d2d2d7" stroke-width="2"/><circle cx="50" cy="52" r="10" fill="none" stroke="#86868b" stroke-width="2"/></svg>`
+                graphic: `<svg viewBox="0 0 100 100"><rect x="30" y="25" width="40" height="55" rx="8" fill="#3f3f46" stroke="#71717a" stroke-width="2"/><circle cx="50" cy="52" r="10" fill="none" stroke="#a1a1aa" stroke-width="2"/></svg>`
             },
             {
                 id: 7,
@@ -1033,7 +1169,7 @@
                 oldPrice: 72000,
                 tag: "Destacado",
                 compatText: "Compatible con Apple Eco",
-                graphic: `<svg viewBox="0 0 100 100"><rect x="32" y="32" width="36" height="36" rx="10" fill="#f5f5f7" stroke="#d2d2d7" stroke-width="2"/><circle cx="50" cy="50" r="6" fill="#1d1d1f"/></svg>`
+                graphic: `<svg viewBox="0 0 100 100"><rect x="32" y="32" width="36" height="36" rx="10" fill="#27272a" stroke="#3f3f46" stroke-width="2"/><circle cx="50" cy="50" r="6" fill="#fff"/></svg>`
             },
             {
                 id: 8,
@@ -1048,51 +1184,51 @@
             }
         ];
 
-        let activeCart = [];
-        let selectedCategory = 'todos';
-        let selectedModel = 'todos';
-        let searchQuery = '';
+        let userCartState = [];
+        let currentTabCategory = 'todos';
+        let currentDeviceModel = 'todos';
+        let liveSearchTerm = '';
 
-        const formatARS = (val) => new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0 }).format(val);
+        const formatCurrencyARS = (amount) => new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', minimumFractionDigits: 0 }).format(amount);
 
-        function renderProducts() {
-            const container = document.getElementById('productsGridContainer');
+        function renderCatalogGrid() {
+            const gridContainer = document.getElementById('productsGridMaster');
             
-            let resultList = storeDatabase.filter(item => {
-                const matchCategory = (selectedCategory === 'todos' || item.category === selectedCategory);
-                const matchModel = (selectedModel === 'todos' || item.model === selectedModel || item.model === 'todos');
-                const matchSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase()) || item.category.toLowerCase().includes(searchQuery.toLowerCase());
-                return matchCategory && matchModel && matchSearch;
+            let filteredList = masterDatabase.filter(item => {
+                const matchesTab = (currentTabCategory === 'todos' || item.category === currentTabCategory);
+                const matchesDevice = (currentDeviceModel === 'todos' || item.model === currentDeviceModel || item.model === 'todos');
+                const matchesSearch = item.title.toLowerCase().includes(liveSearchTerm.toLowerCase()) || item.category.toLowerCase().includes(liveSearchTerm.toLowerCase());
+                return matchesTab && matchesDevice && matchesSearch;
             });
 
-            const sortVal = document.getElementById('sortSelect').value;
-            if (sortVal === 'low-high') resultList.sort((a,b) => a.price - b.price);
-            if (sortVal === 'high-low') resultList.sort((a,b) => b.price - a.price);
+            const sortingValue = document.getElementById('sortEngineSelect').value;
+            if (sortingValue === 'low-high') filteredList.sort((a,b) => a.price - b.price);
+            if (sortingValue === 'high-low') filteredList.sort((a,b) => b.price - a.price);
 
-            if (resultList.length === 0) {
-                container.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding:60px; color:var(--text-muted);">No se encontraron productos disponibles para tu búsqueda.</div>`;
+            if (filteredList.length === 0) {
+                gridContainer.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding:80px; color:var(--text-muted);">No se encontraron productos disponibles para tu búsqueda.</div>`;
                 return;
             }
 
-            container.innerHTML = resultList.map(prod => {
-                const tagHTML = prod.tag ? `<div class="product-tag ${prod.tag === 'Promo' || prod.tag === 'Oferta' ? 'sale' : ''}">${prod.tag}</div>` : '';
-                const priceHTML = prod.oldPrice 
-                    ? `<span class="price-old">${formatARS(prod.oldPrice)}</span><span class="price-current">${formatARS(prod.price)}</span>`
-                    : `<span class="price-current">${formatARS(prod.price)}</span>`;
+            gridContainer.innerHTML = filteredList.map(prod => {
+                const badgeTag = prod.tag ? `<div class="pod-badge ${prod.tag === 'Promo' || prod.tag === 'Oferta' ? 'sale' : ''}">${prod.tag}</div>` : '';
+                const priceMarkup = prod.oldPrice 
+                    ? `<span class="price-old">${formatCurrencyARS(prod.oldPrice)}</span><span class="price-current">${formatCurrencyARS(prod.price)}</span>`
+                    : `<span class="price-current">${formatCurrencyARS(prod.price)}</span>`;
 
                 return `
-                    <div class="product-card">
-                        ${tagHTML}
-                        <div class="product-img-box">${prod.graphic}</div>
-                        <div class="product-details">
-                            <span class="product-cat">${prod.category}</span>
-                            <h3 class="product-title">${prod.title}</h3>
-                            <span class="product-compatibility">${prod.compatText}</span>
-                            <div class="product-footer-row">
-                                <div>${priceHTML}</div>
-                                <div class="product-action-btns">
-                                    <button class="btn-quick-view" onclick="openModal(${prod.id})">Ver</button>
-                                    <button class="btn-add-cart" onclick="addItemToCart(${prod.id})">Agregar</button>
+                    <div class="product-pod">
+                        ${badgeTag}
+                        <div class="pod-image-stage">${prod.graphic}</div>
+                        <div class="pod-body">
+                            <span class="pod-category">${prod.category}</span>
+                            <h3 class="pod-title">${prod.title}</h3>
+                            <span class="pod-meta-pill">${prod.compatText}</span>
+                            <div class="pod-footer">
+                                <div>${priceMarkup}</div>
+                                <div class="pod-actions">
+                                    <button class="btn-inspect" onclick="openQuickModal(${prod.id})">Ver</button>
+                                    <button class="btn-buy-now" onclick="addToCartEngine(${prod.id})">Agregar</button>
                                 </div>
                             </div>
                         </div>
@@ -1101,162 +1237,193 @@
             }).join('');
         }
 
-        function setCategory(cat, event) {
-            selectedCategory = cat;
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        function setCategoryTab(categoryName, event) {
+            currentTabCategory = categoryName;
+            document.querySelectorAll('.pill-tab').forEach(b => b.classList.remove('active'));
             event.target.classList.add('active');
-            renderProducts();
+            renderCatalogGrid();
         }
 
-        function filterCatalog() {
-            selectedModel = document.getElementById('modelFilterSelect').value;
-            renderProducts();
+        function applyDeviceFilter() {
+            currentDeviceModel = document.getElementById('deviceModelSelect').value;
+            renderCatalogGrid();
         }
 
-        function handleSearchInput() {
-            searchQuery = document.getElementById('searchInput').value;
-            renderProducts();
+        function handleSearchQuery() {
+            liveSearchTerm = document.getElementById('liveSearchInput').value;
+            renderCatalogGrid();
         }
 
-        function sortCatalog() {
-            renderProducts();
+        function sortCatalogEngine() {
+            renderCatalogGrid();
         }
 
-        /* --- Modal Quick View --- */
-        function openModal(id) {
-            const item = storeDatabase.find(p => p.id === id);
+        /* --- Theme Toggle Engine --- */
+        function toggleThemeMode() {
+            const htmlTag = document.documentElement;
+            const toggleBtn = document.getElementById('themeToggleBtn');
+            if (htmlTag.getAttribute('data-theme') === 'dark') {
+                htmlTag.setAttribute('data-theme', 'light');
+                toggleBtn.textContent = '☀️';
+            } else {
+                htmlTag.setAttribute('data-theme', 'dark');
+                toggleBtn.textContent = '🌙';
+            }
+        }
+
+        /* --- Quick View Modal Engine --- */
+        function openQuickModal(id) {
+            const item = masterDatabase.find(p => p.id === id);
             if (!item) return;
-            document.getElementById('modalGraphicBox').innerHTML = item.graphic;
-            document.getElementById('modalCategory').textContent = item.category;
-            document.getElementById('modalTitle').textContent = item.title;
-            document.getElementById('modalCompat').textContent = item.compatText;
-            document.getElementById('modalPrice').textContent = formatARS(item.price);
-            document.getElementById('modalAddBtn').onclick = () => {
-                addItemToCart(item.id);
-                closeModal();
+            document.getElementById('modalGraphicContainer').innerHTML = item.graphic;
+            document.getElementById('modalCategoryLabel').textContent = item.category;
+            document.getElementById('modalTitleText').textContent = item.title;
+            document.getElementById('modalCompatPill').textContent = item.compatText;
+            document.getElementById('modalPriceVal').textContent = formatCurrencyARS(item.price);
+            document.getElementById('modalAddToCartAction').onclick = () => {
+                addToCartEngine(item.id);
+                closeQuickModal();
             };
             document.getElementById('quickViewModal').classList.add('active');
         }
 
-        function closeModal() {
+        function closeQuickModal() {
             document.getElementById('quickViewModal').classList.remove('active');
         }
 
-        /* --- Carrito Logic --- */
-        const overlayBg = document.getElementById('cartOverlayBg');
-        const drawerPanel = document.getElementById('cartDrawerPanel');
+        /* --- Cart & Shipping Drawer Engine --- */
+        const cartLayer = document.getElementById('cartOverlayLayer');
+        const cartPanel = document.getElementById('cartDrawerPanel');
 
-        document.getElementById('openCartBtn').addEventListener('click', () => {
-            overlayBg.classList.add('active');
-            drawerPanel.classList.add('active');
-            updateCartDrawer();
+        document.getElementById('openCartDrawerBtn').addEventListener('click', () => {
+            cartLayer.classList.add('active');
+            cartPanel.classList.add('active');
+            updateCartDrawerUI();
         });
 
-        document.getElementById('closeCartDrawerBtn').addEventListener('click', closeCartDrawer);
-        overlayBg.addEventListener('click', closeCartDrawer);
+        document.getElementById('closeCartDrawerBtn').addEventListener('click', closeCartDrawerPanel);
+        cartLayer.addEventListener('click', closeCartDrawerPanel);
 
-        function closeCartDrawer() {
-            overlayBg.classList.remove('active');
-            drawerPanel.classList.remove('active');
+        function closeCartDrawerPanel() {
+            cartLayer.classList.remove('active');
+            cartPanel.classList.remove('active');
         }
 
-        function showToast() {
-            const toast = document.getElementById('toast-alert');
+        function triggerToastNotification() {
+            const toast = document.getElementById('toast-master');
             toast.classList.add('show');
             setTimeout(() => toast.classList.remove('show'), 2300);
         }
 
-        window.addItemToCart = (id) => {
-            const product = storeDatabase.find(p => p.id === id);
-            const found = activeCart.find(i => i.id === id);
-            if (found) {
-                found.qty++;
+        window.addToCartEngine = (id) => {
+            const prod = masterDatabase.find(p => p.id === id);
+            const existingItem = userCartState.find(i => i.id === id);
+            if (existingItem) {
+                existingItem.qty++;
             } else {
-                activeCart.push({ ...product, qty: 1 });
+                userCartState.push({ ...prod, qty: 1 });
             }
-            updateCartBadgeCount();
-            showToast();
+            updateCartCounterBadge();
+            triggerToastNotification();
         };
 
-        window.changeQty = (id, delta) => {
-            const item = activeCart.find(i => i.id === id);
+        window.modifyCartQty = (id, delta) => {
+            const item = userCartState.find(i => i.id === id);
             if (!item) return;
             item.qty += delta;
             if (item.qty <= 0) {
-                activeCart = activeCart.filter(i => i.id !== id);
+                userCartState = userCartState.filter(i => i.id !== id);
             }
-            updateCartDrawer();
-            updateCartBadgeCount();
+            updateCartDrawerUI();
+            updateCartCounterBadge();
         };
 
-        window.removeItemCompletely = (id) => {
-            activeCart = activeCart.filter(i => i.id !== id);
-            updateCartDrawer();
-            updateCartBadgeCount();
+        window.removeCartItemCompletely = (id) => {
+            userCartState = userCartState.filter(i => i.id !== id);
+            updateCartDrawerUI();
+            updateCartCounterBadge();
         };
 
-        function updateCartBadgeCount() {
-            const total = activeCart.reduce((sum, item) => sum + item.qty, 0);
-            document.getElementById('cartBadgeCount').textContent = total;
+        function updateCartCounterBadge() {
+            const totalUnits = userCartState.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById('cartBadgeCount').textContent = totalUnits;
         }
 
-        function updateCartDrawer() {
-            const container = document.getElementById('cartItemsListContainer');
-            if (activeCart.length === 0) {
-                container.innerHTML = `<p style="text-align:center; color: var(--text-muted); margin-top: 50px;">Tu carrito está vacío</p>`;
-                document.getElementById('cartSubtotalAmount').textContent = formatARS(0);
+        function updateCartDrawerUI() {
+            const container = document.getElementById('cartItemsScrollerContainer');
+            if (userCartState.length === 0) {
+                container.innerHTML = `<p style="text-align:center; color: var(--text-muted); margin-top: 60px;">Tu carrito está vacío</p>`;
+                document.getElementById('drawerSubtotalAmountText').textContent = formatCurrencyARS(0);
+                updateShippingProgressBar(0);
                 return;
             }
 
-            let subtotal = 0;
-            container.innerHTML = activeCart.map(item => {
-                subtotal += item.price * item.qty;
+            let subtotalSum = 0;
+            container.innerHTML = userCartState.map(item => {
+                subtotalSum += item.price * item.qty;
                 return `
-                    <div class="cart-item-row">
-                        <div class="cart-item-thumb">${item.graphic}</div>
-                        <div class="cart-item-info">
+                    <div class="cart-row-card">
+                        <div class="cart-thumb-box">${item.graphic}</div>
+                        <div class="cart-row-details">
                             <h4>${item.title}</h4>
-                            <span>${formatARS(item.price)} c/u</span>
-                            <div class="qty-controls">
-                                <button class="qty-btn" onclick="changeQty(${item.id}, -1)">-</button>
-                                <span style="font-size:0.85rem; font-weight:700;">${item.qty}</span>
-                                <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
+                            <span>${formatCurrencyARS(item.price)} c/u</span>
+                            <div class="qty-stepper">
+                                <button class="stepper-btn" onclick="modifyCartQty(${item.id}, -1)">-</button>
+                                <span style="font-size:0.85rem; font-weight:800;">${item.qty}</span>
+                                <button class="stepper-btn" onclick="modifyCartQty(${item.id}, 1)">+</button>
                             </div>
                         </div>
-                        <button class="cart-item-remove" onclick="removeItemCompletely(${item.id})">Quitar</button>
+                        <button class="btn-trash-item" onclick="removeCartItemCompletely(${item.id})">Quitar</button>
                     </div>
                 `;
             }).join('');
 
-            document.getElementById('cartSubtotalAmount').textContent = formatARS(subtotal);
+            document.getElementById('drawerSubtotalAmountText').textContent = formatCurrencyARS(subtotalSum);
+            updateShippingProgressBar(subtotalSum);
         }
 
-        function checkoutToWhatsApp() {
-            if (activeCart.length === 0) {
+        function updateShippingProgressBar(subtotal) {
+            const freeShippingTarget = 50000;
+            const progressFill = document.getElementById('shippingProgressFill');
+            const progressText = document.getElementById('shippingProgressText');
+            
+            let percentage = Math.min(100, (subtotal / freeShippingTarget) * 100);
+            progressFill.style.width = percentage + '%';
+
+            if (subtotal >= freeShippingTarget) {
+                progressText.textContent = '🎉 ¡Felicitaciones! Tenés Envío Gratis.';
+            } else {
+                let missing = freeShippingTarget - subtotal;
+                progressText.textContent = `¡Estás a ${formatCurrencyARS(missing)} del Envío Gratis!`;
+            }
+        }
+
+        function executeWhatsAppCheckout() {
+            if (userCartState.length === 0) {
                 alert("Tu carrito está vacío.");
                 return;
             }
-            let msg = "Hola! Quiero realizar el siguiente pedido en *GMN Store*:%0A%0A";
-            let totalSum = 0;
-            activeCart.forEach(item => {
-                msg += `• ${item.qty}x ${item.title} (${formatARS(item.price * item.qty)})%0A`;
-                totalSum += item.price * item.qty;
+            let textPayload = "Hola! Quiero realizar el siguiente pedido en *GMN Store*:%0A%0A";
+            let grandTotal = 0;
+            userCartState.forEach(item => {
+                textPayload += `• ${item.qty}x ${item.title} (${formatCurrencyARS(item.price * item.qty)})%0A`;
+                grandTotal += item.price * item.qty;
             });
-            msg += `%0A*Total a abonar: ${formatARS(totalSum)}*%0A¿Cómo coordinamos el pago y envío?`;
+            textPayload += `%0A*Total a abonar: ${formatCurrencyARS(grandTotal)}*%0A¿Cómo coordinamos el pago y envío?`;
             
-            window.open(`https://wa.me/5493794345594?text=${msg}`, '_blank');
+            window.open(`https://wa.me/5493794345594?text=${textPayload}`, '_blank');
         }
 
-        /* --- FAQ Toggle --- */
-        function toggleFaq(el) {
-            const parent = el.parentElement;
-            parent.classList.toggle('open');
-            const span = el.querySelector('span');
-            span.textContent = parent.classList.contains('open') ? '-' : '+';
+        /* --- FAQ Accordion Toggle --- */
+        function toggleFaqAccordion(element) {
+            const box = element.parentElement;
+            box.classList.toggle('open');
+            const span = element.querySelector('span');
+            span.textContent = box.classList.contains('open') ? '-' : '+';
         }
 
-        // Inicializar renderizado del catálogo
-        renderProducts();
+        // Inicialización de la aplicación
+        renderCatalogGrid();
     </script>
 </body>
 </html>
