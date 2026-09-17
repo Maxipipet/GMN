@@ -3,69 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GMN Store | Accesorios & Tecnología para iPhone</title>
+    <title>GMN Store | Apple Reseller & Accesorios</title>
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍏</text></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-main: #050507;
-            --bg-card: #121216;
-            --bg-glass: rgba(18, 18, 22, 0.85);
-            --text-main: #ffffff;
-            --text-muted: #94a3b8;
-            --accent: #2563eb;
-            --accent-glow: rgba(37, 99, 235, 0.4);
+            --bg-body: #ffffff;
+            --bg-surface: #f5f5f7;
+            --text-main: #1d1d1f;
+            --text-muted: #86868b;
+            --accent: #0066cc;
+            --accent-hover: #004499;
             --whatsapp: #25d366;
-            --danger: #f43f5e;
-            --border: #27272a;
-            --radius-lg: 24px;
-            --radius-md: 16px;
-            --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            --danger: #ff3b30;
+            --border: #d2d2d7;
+            --radius-lg: 20px;
+            --radius-md: 12px;
+            --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             -webkit-font-smoothing: antialiased;
         }
 
         body {
-            background-color: var(--bg-main);
+            background-color: var(--bg-body);
             color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
+            line-height: 1.5;
         }
 
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
 
-        /* Barra superior */
-        .promo-bar {
-            background: linear-gradient(90deg, #1d4ed8, #7c3aed, #db2777);
-            color: #fff;
+        /* Barra superior estilo OneClick */
+        .top-announcement {
+            background-color: #000000;
+            color: #ffffff;
             text-align: center;
-            padding: 10px 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
+            padding: 10px 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
             letter-spacing: 0.5px;
         }
 
-        /* Header / Navegación */
+        /* Header Minimalista Apple Style */
         header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: var(--bg-glass);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
         }
 
-        .nav-container {
-            max-width: 1300px;
+        .nav-wrap {
+            max-width: 1280px;
             margin: 0 auto;
             padding: 16px 24px;
             display: flex;
@@ -74,194 +72,179 @@
         }
 
         .logo-box img {
-            height: 38px;
+            height: 35px;
             object-fit: contain;
         }
 
         .logo-fallback {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 800;
             letter-spacing: -0.5px;
-            background: linear-gradient(135deg, #fff, var(--text-muted));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #000;
         }
 
-        .nav-links {
+        .nav-menu {
             display: flex;
-            gap: 30px;
+            gap: 28px;
         }
 
-        .nav-links a {
-            font-size: 0.95rem;
+        .nav-menu a {
+            font-size: 0.9rem;
             font-weight: 500;
-            color: var(--text-muted);
+            color: var(--text-main);
             transition: var(--transition);
         }
 
-        .nav-links a:hover { color: var(--text-main); }
+        .nav-menu a:hover { color: var(--accent); }
 
-        .cart-trigger {
-            background: var(--bg-card);
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .cart-trigger-btn {
+            background: var(--bg-surface);
             border: 1px solid var(--border);
             color: var(--text-main);
-            padding: 10px 20px;
+            padding: 8px 16px;
             border-radius: 50px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: var(--transition);
         }
 
-        .cart-trigger:hover {
+        .cart-trigger-btn:hover {
             border-color: var(--accent);
-            box-shadow: 0 0 15px var(--accent-glow);
         }
 
-        .cart-count {
+        .cart-badge-count {
             background: var(--accent);
             color: white;
-            font-size: 0.75rem;
-            padding: 2px 8px;
+            font-size: 0.7rem;
+            padding: 2px 6px;
             border-radius: 20px;
         }
 
-        /* Selector de Modelo de iPhone */
-        .device-selector-wrapper {
-            background: linear-gradient(180deg, #0f0f13 0%, var(--bg-main) 100%);
-            padding: 20px 24px;
+        /* Banner de Categorías / Modelos iPhone */
+        .category-quick-bar {
+            background: var(--bg-surface);
+            padding: 16px 20px;
             border-bottom: 1px solid var(--border);
-            text-align: center;
         }
 
-        .device-selector-box {
-            max-width: 650px;
+        .quick-bar-inner {
+            max-width: 1200px;
             margin: 0 auto;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 14px 24px;
-            border-radius: var(--radius-md);
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
-        .device-selector-box label {
+        .quick-bar-inner span {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .model-picker {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 8px 14px;
+            border-radius: 8px;
             font-size: 0.9rem;
             font-weight: 600;
-            color: var(--text-muted);
-            text-align: left;
-        }
-
-        .device-select {
-            background: var(--bg-main);
             color: var(--text-main);
-            border: 1px solid var(--border);
-            padding: 10px 16px;
-            border-radius: 10px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            outline: none;
             cursor: pointer;
-            flex: 1;
-            transition: var(--transition);
+            outline: none;
         }
 
-        .device-select:focus { border-color: var(--accent); }
-
-        /* Hero Section */
-        .hero {
-            padding: 80px 24px;
+        /* Hero / Banner Principal */
+        .hero-banner {
+            background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ed 100%);
+            padding: 70px 24px;
             text-align: center;
-            background: radial-gradient(circle at center, rgba(37, 99, 235, 0.12) 0%, transparent 65%);
+            border-bottom: 1px solid var(--border);
         }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+        .hero-banner h1 {
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
             font-weight: 800;
             letter-spacing: -1px;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
+            color: var(--text-main);
         }
 
-        .hero h1 span {
-            background: linear-gradient(135deg, #60a5fa, #f43f5e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
+        .hero-banner p {
+            font-size: 1.05rem;
             color: var(--text-muted);
             max-width: 600px;
-            margin: 0 auto 30px;
+            margin: 0 auto 24px;
         }
 
-        .hero-btn {
-            background: var(--text-main);
-            color: var(--bg-main);
-            padding: 14px 32px;
-            border-radius: 50px;
-            font-weight: 700;
+        .hero-cta {
+            background: var(--accent);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
             display: inline-block;
             transition: var(--transition);
         }
 
-        .hero-btn:hover {
-            background: var(--accent);
-            color: #fff;
-            transform: scale(1.05);
-            box-shadow: 0 0 25px var(--accent-glow);
-        }
+        .hero-cta:hover { background: var(--accent-hover); }
 
-        /* Filtros de Categorías */
-        .filter-wrapper {
-            max-width: 1300px;
-            margin: 0 auto 40px;
+        /* Filtros limpios */
+        .filter-row {
+            max-width: 1280px;
+            margin: 35px auto 20px;
             padding: 0 24px;
             display: flex;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
         }
 
-        .filter-tab {
-            background: var(--bg-card);
+        .filter-chip {
+            background: white;
             border: 1px solid var(--border);
             color: var(--text-muted);
-            padding: 10px 22px;
-            border-radius: 30px;
+            padding: 8px 18px;
+            border-radius: 20px;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             cursor: pointer;
             transition: var(--transition);
         }
 
-        .filter-tab.active, .filter-tab:hover {
-            background: var(--text-main);
-            color: var(--bg-main);
-            border-color: var(--text-main);
+        .filter-chip.active, .filter-chip:hover {
+            background: #000;
+            color: #fff;
+            border-color: #000;
         }
 
-        /* Grilla de Productos */
-        .catalog-container {
-            max-width: 1300px;
+        /* Grilla de Productos estilo e-commerce moderno */
+        .products-section {
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 24px 100px;
+            padding: 0 24px 80px;
         }
 
-        .products-grid {
+        .grid-layout {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 24px;
         }
 
-        .product-card {
-            background: var(--bg-card);
+        .card-product {
+            background: #ffffff;
             border: 1px solid var(--border);
             border-radius: var(--radius-md);
             overflow: hidden;
@@ -271,32 +254,31 @@
             position: relative;
         }
 
-        .product-card:hover {
-            transform: translateY(-6px);
-            border-color: #3f3f46;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        .card-product:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-color: #b6b6bb;
+            transform: translateY(-4px);
         }
 
-        .product-badge {
+        .product-tag {
             position: absolute;
-            top: 16px;
-            left: 16px;
-            background: rgba(0,0,0,0.75);
-            backdrop-filter: blur(8px);
-            border: 1px solid var(--border);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
+            top: 12px;
+            left: 12px;
+            background: #000;
+            color: #fff;
+            font-size: 0.65rem;
             font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 10px;
             z-index: 2;
+            text-transform: uppercase;
         }
 
-        .product-badge.sale { background: var(--danger); border-color: transparent; }
+        .product-tag.sale { background: var(--danger); }
 
-        /* Contenedor Gráfico Realista (Imágenes SVG personalizadas para que carguen siempre perfectas) */
-        .product-graphics {
-            height: 250px;
-            background: radial-gradient(circle, #1e1e24 0%, #0d0d10 100%);
+        .product-image-box {
+            height: 230px;
+            background: var(--bg-surface);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -304,94 +286,92 @@
             padding: 20px;
         }
 
-        .product-graphics svg {
-            width: 130px;
-            height: 130px;
-            filter: drop-shadow(0 15px 20px rgba(0,0,0,0.7));
+        .product-image-box svg {
+            width: 110px;
+            height: 110px;
             transition: var(--transition);
         }
 
-        .product-card:hover .product-graphics svg {
-            transform: scale(1.08) rotate(2deg);
+        .card-product:hover .product-image-box svg {
+            transform: scale(1.06);
         }
 
-        .product-info {
-            padding: 24px;
+        .product-details {
+            padding: 20px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
 
-        .product-category {
-            font-size: 0.75rem;
+        .product-cat {
+            font-size: 0.7rem;
+            color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #60a5fa;
-            font-weight: 700;
-            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+            font-weight: 600;
         }
 
         .product-name {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 700;
+            color: var(--text-main);
             margin-bottom: 6px;
         }
 
-        .product-compatibility {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-bottom: 16px;
-            background: rgba(255,255,255,0.03);
-            padding: 4px 10px;
+        .product-model-tag {
+            font-size: 0.75rem;
+            color: var(--accent);
+            background: rgba(0, 102, 204, 0.08);
+            padding: 3px 8px;
             border-radius: 6px;
             width: fit-content;
+            margin-bottom: 14px;
+            font-weight: 600;
         }
 
-        .product-bottom {
+        .product-action-row {
             margin-top: auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding-top: 16px;
-            border-top: 1px solid var(--border);
+            padding-top: 14px;
+            border-top: 1px solid var(--bg-surface);
         }
 
         .price-current {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             font-weight: 800;
+            color: var(--text-main);
         }
 
         .price-old {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-decoration: line-through;
             color: var(--text-muted);
             display: block;
         }
 
-        .btn-add-cart {
-            background: var(--text-main);
-            color: var(--bg-main);
+        .btn-add {
+            background: #000;
+            color: white;
             border: none;
-            padding: 10px 18px;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 0.85rem;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.8rem;
             cursor: pointer;
             transition: var(--transition);
         }
 
-        .btn-add-cart:hover {
-            background: var(--accent);
-            color: white;
-            transform: scale(1.05);
-        }
+        .btn-add:hover { background: var(--accent); }
 
-        /* Carrito Drawer Estilizado */
+        /* Carrito Drawer Estilizado Clean */
         .cart-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.75);
-            backdrop-filter: blur(6px);
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(4px);
             z-index: 2000;
             opacity: 0;
             visibility: hidden;
@@ -403,104 +383,104 @@
         .cart-drawer {
             position: fixed;
             top: 0;
-            right: -450px;
+            right: -420px;
             width: 100%;
-            max-width: 420px;
+            max-width: 400px;
             height: 100%;
-            background: var(--bg-card);
-            border-left: 1px solid var(--border);
+            background: white;
             z-index: 2001;
             display: flex;
             flex-direction: column;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.1);
             transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .cart-drawer.active { right: 0; }
 
         .cart-header {
-            padding: 24px;
+            padding: 20px 24px;
             border-bottom: 1px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-        .cart-header h3 { font-size: 1.2rem; font-weight: 700; }
+        .cart-header h3 { font-size: 1.1rem; font-weight: 700; }
 
         .cart-close {
             background: none;
             border: none;
-            color: var(--text-muted);
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             cursor: pointer;
+            color: var(--text-muted);
         }
 
-        .cart-items-box {
+        .cart-items-list {
             flex: 1;
             overflow-y: auto;
-            padding: 24px;
+            padding: 20px 24px;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 14px;
         }
 
-        .cart-item-row {
+        .cart-item-card {
             display: flex;
-            gap: 14px;
+            gap: 12px;
             align-items: center;
-            background: var(--bg-main);
-            padding: 12px;
-            border-radius: 12px;
+            background: var(--bg-surface);
+            padding: 10px;
+            border-radius: 10px;
             border: 1px solid var(--border);
         }
 
         .cart-item-thumb {
-            width: 50px;
-            height: 50px;
-            background: var(--bg-card);
-            border-radius: 8px;
+            width: 45px;
+            height: 45px;
+            background: white;
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .cart-item-thumb svg { width: 30px; height: 30px; }
+        .cart-item-thumb svg { width: 25px; height: 25px; }
 
-        .cart-item-details { flex: 1; }
-        .cart-item-details h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 2px; }
-        .cart-item-details span { font-size: 0.85rem; color: var(--text-muted); }
+        .cart-item-info { flex: 1; }
+        .cart-item-info h4 { font-size: 0.85rem; font-weight: 600; margin-bottom: 2px; }
+        .cart-item-info span { font-size: 0.8rem; color: var(--text-muted); }
 
         .cart-item-remove {
             background: none;
             border: none;
             color: var(--danger);
             cursor: pointer;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
         }
 
         .cart-footer {
-            padding: 24px;
+            padding: 20px 24px;
             border-top: 1px solid var(--border);
-            background: var(--bg-card);
+            background: white;
         }
 
-        .cart-total-line {
+        .cart-total-row {
             display: flex;
             justify-content: space-between;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
-        .btn-checkout-whatsapp {
+        .btn-whatsapp-checkout {
             width: 100%;
             background: var(--whatsapp);
             color: white;
             border: none;
-            padding: 16px;
-            border-radius: 14px;
-            font-size: 1rem;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 0.95rem;
             font-weight: 700;
             cursor: pointer;
             display: flex;
@@ -508,150 +488,134 @@
             justify-content: center;
             gap: 10px;
             transition: var(--transition);
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
         }
 
-        .btn-checkout-whatsapp:hover { opacity: 0.9; transform: translateY(-2px); }
+        .btn-whatsapp-checkout:hover { opacity: 0.9; }
 
-        /* Botón Flotante de WhatsApp (Siempre Visible) */
-        .whatsapp-floating {
+        /* Botón flotante de WhatsApp */
+        .whatsapp-float-btn {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 25px;
+            right: 25px;
             background: var(--whatsapp);
             color: white;
-            width: 65px;
-            height: 65px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
             z-index: 1500;
             transition: var(--transition);
         }
 
-        .whatsapp-floating:hover {
-            transform: scale(1.1) rotate(10deg);
-        }
-
-        .whatsapp-floating svg {
-            width: 36px;
-            height: 36px;
-            fill: white;
-        }
+        .whatsapp-float-btn:hover { transform: scale(1.1); }
+        .whatsapp-float-btn svg { width: 34px; height: 34px; fill: white; }
 
         /* Notificación Toast */
-        #toast-notification {
+        #toast-alert {
             position: fixed;
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%) translateY(100px);
-            background: var(--text-main);
-            color: var(--bg-main);
-            padding: 12px 24px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background: #000;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
             z-index: 3000;
             opacity: 0;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.3s ease;
         }
 
-        #toast-notification.show {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
-        }
+        #toast-alert.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 
-        /* Footer */
+        /* Footer limpio */
         footer {
-            background: var(--bg-card);
+            background: var(--bg-surface);
             border-top: 1px solid var(--border);
-            padding: 60px 24px 30px;
+            padding: 50px 24px 25px;
             text-align: center;
         }
 
-        footer p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; }
+        footer p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; }
 
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero h1 { font-size: 2.5rem; }
-            .device-selector-box { flex-direction: column; align-items: stretch; }
+            .nav-menu { display: none; }
+            .hero-banner h1 { font-size: 2.2rem; }
+            .quick-bar-inner { flex-direction: column; gap: 8px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Promotion Bar -->
-    <div class="promo-bar">
-        🔥 3 cuotas sin interés con todas las tarjetas + Envío Gratis en compras superiores a $50.000
+    <div class="top-announcement">
+        ⚡ 3 cuotas sin interés en todos los accesorios • Envíos a todo el país
     </div>
 
-    <!-- Header Principal -->
+    <!-- Header -->
     <header>
-        <div class="nav-container">
+        <div class="nav-wrap">
             <div class="logo-box">
                 <img src="LOGOGMN.png" alt="GMN Store" onerror="this.style.display='none'; document.getElementById('logoText').style.display='block';">
                 <span id="logoText" class="logo-fallback" style="display:none;">GMN STORE</span>
             </div>
 
-            <nav class="nav-links">
-                <a href="#catalogo">Catálogo</a>
-                <a href="#fundas">Fundas</a>
+            <nav class="nav-menu">
+                <a href="#catalogo">Accesorios iPhone</a>
+                <a href="#fundas">Fundas MagSafe</a>
                 <a href="#cargadores">Cargadores</a>
                 <a href="#contacto">Contacto</a>
             </nav>
 
-            <button class="cart-trigger" id="openCartBtn">
+            <button class="cart-trigger-btn" id="openCartBtn">
                 <span>🛒 Carrito</span>
-                <span class="cart-count" id="cartBadgeCount">0</span>
+                <span class="cart-badge-count" id="cartBadgeCount">0</span>
             </button>
         </div>
     </header>
 
-    <!-- Selector Interactivo de Modelos de iPhone -->
-    <div class="device-selector-wrapper">
-        <div class="device-selector-box">
-            <label for="iphoneModelSelect">📱 Filtrar accesorios para tu modelo:</label>
-            <select class="device-select" id="iphoneModelSelect" onchange="filterProductsByModel()">
-                <option value="todos">✨ Ver todos los modelos de iPhone</option>
-                <option value="16">iPhone 16 / 16 Pro / Pro Max</option>
-                <option value="15">iPhone 15 / 15 Pro / Pro Max</option>
-                <option value="14">iPhone 14 / 14 Pro / Pro Max</option>
-                <option value="13">iPhone 13 / 13 Pro</option>
-                <option value="12">iPhone 12 / 12 Pro</option>
+    <!-- Barra de Selección de Modelo de iPhone -->
+    <div class="category-quick-bar">
+        <div class="quick-bar-inner">
+            <span>📱 Buscá accesorios para tu modelo:</span>
+            <select class="model-picker" id="iphoneModelSelect" onchange="filterProductsByModel()">
+                <option value="todos">Ver todo el catálogo</option>
+                <option value="16">iPhone 16 Series</option>
+                <option value="15">iPhone 15 Series</option>
+                <option value="14">iPhone 14 Series</option>
+                <option value="13">iPhone 13 Series</option>
             </select>
         </div>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Accesorios Exclusivos<br><span>para tu iPhone</span></h1>
-            <p>Diseño, protección avanzada, tecnología MagSafe y cargadores de alta velocidad para potenciar tus dispositivos.</p>
-            <a href="#catalogo" class="hero-btn">Ver Catálogo Completo</a>
-        </div>
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <h1>Tu tienda de confianza en accesorios Apple</h1>
+        <p>Fundas MagSafe, cristales templados, cables certificados y cargadores rápidos originales.</p>
+        <a href="#catalogo" class="hero-cta">Explorar Productos</a>
     </section>
 
-    <!-- Filtros por Categoría -->
-    <div class="filter-wrapper">
-        <button class="filter-tab active" onclick="setCategory('todos', event)">Todos</button>
-        <button class="filter-tab" onclick="setCategory('Fundas', event)">Fundas MagSafe</button>
-        <button class="filter-tab" onclick="setCategory('Carga', event)">Cargadores & Cables</button>
-        <button class="filter-tab" onclick="setCategory('Audio', event)">Audio</button>
-        <button class="filter-tab" onclick="setCategory('Protección', event)">Vidrios Templados</button>
+    <!-- Filtros por categoría -->
+    <div class="filter-row">
+        <button class="filter-chip active" onclick="setCategory('todos', event)">Todos</button>
+        <button class="filter-chip" onclick="setCategory('Fundas', event)">Fundas</button>
+        <button class="filter-chip" onclick="setCategory('Carga', event)">Cargadores</button>
+        <button class="filter-chip" onclick="setCategory('Protección', event)">Vidrios</button>
+        <button class="filter-chip" onclick="setCategory('Audio', event)">Audio</button>
     </div>
 
     <!-- Grilla de Productos -->
-    <section class="catalog-container" id="catalogo">
-        <div class="products-grid" id="productGrid">
-            <!-- Productos inyectados por JavaScript -->
+    <section class="products-section" id="catalogo">
+        <div class="grid-layout" id="productGrid">
+            <!-- Inyectado por JS -->
         </div>
     </section>
 
-    <!-- Botón Flotante de WhatsApp (Visible Siempre Abajo a la Derecha) -->
-    <a href="https://wa.me/5493794345594?text=Hola!%20Quiero%20consultar%20por%20accesorios%20para%20iPhone%20en%20GMN%20Store" target="_blank" class="whatsapp-floating" aria-label="Abrir WhatsApp">
+    <!-- Botón Flotante WhatsApp -->
+    <a href="https://wa.me/5493794345594?text=Hola!%20Quiero%20consultar%20por%20accesorios%20para%20iPhone%20en%20GMN%20Store" target="_blank" class="whatsapp-float-btn" aria-label="WhatsApp">
         <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
     </a>
 
@@ -662,46 +626,46 @@
             <h3>Tu Carrito GMN</h3>
             <button class="cart-close" id="closeCartBtn">&times;</button>
         </div>
-        <div class="cart-items-box" id="cartItemsContainer">
+        <div class="cart-items-list" id="cartItemsContainer">
             <p style="text-align:center; color: var(--text-muted); margin-top: 50px;">Tu carrito está vacío</p>
         </div>
         <div class="cart-footer">
-            <div class="cart-total-line">
+            <div class="cart-total-row">
                 <span>Subtotal:</span>
                 <span id="cartTotalPrice">$0</span>
             </div>
-            <button class="btn-checkout-whatsapp" onclick="checkoutViaWhatsApp()">
+            <button class="btn-whatsapp-checkout" onclick="checkoutViaWhatsApp()">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
-                Realizar pedido por WhatsApp
+                Finalizar pedido por WhatsApp
             </button>
         </div>
     </div>
 
     <!-- Notificación Toast -->
-    <div id="toast-notification">¡Producto agregado al carrito!</div>
+    <div id="toast-alert">¡Producto agregado al carrito!</div>
 
     <!-- Footer -->
     <footer>
-        <div style="max-width: 1300px; margin: 0 auto;">
-            <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 8px;">GMN STORE</h3>
-            <p>Especialistas en accesorios y tecnología para iPhone.<br>Atención y pedidos por WhatsApp: <strong>+54 9 3794 34-5594</strong></p>
-            <p style="font-size: 0.8rem; color: #52525b; margin-top: 20px;">&copy; 2026 GMN Store. Todos los derechos reservados.</p>
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h3 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 6px; color: #000;">GMN STORE</h3>
+            <p>Especialistas en accesorios para iPhone. Ventas y atención directa por WhatsApp: <strong>+54 9 3794 34-5594</strong></p>
+            <p style="font-size: 0.75rem; color: #a1a1a6; margin-top: 15px;">&copy; 2026 GMN Store. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- Script de Lógica e Imágenes Vectoriales Realistas -->
+    <!-- Lógica y Gráficos -->
     <script>
         const products = [
             {
                 id: 1,
-                title: "Funda Silicona MagSafe Black",
+                title: "Funda Silicona MagSafe",
                 category: "Fundas",
                 model: "16",
                 price: 19500,
                 oldPrice: 23000,
-                badge: "Más Vendido",
-                compatText: "Compatible con iPhone 16 Series",
-                graphic: `<svg viewBox="0 0 120 120"><rect x="35" y="10" width="50" height="100" rx="14" fill="#18181b" stroke="#3f3f46" stroke-width="3"/><circle cx="60" cy="60" r="18" fill="none" stroke="#52525b" stroke-width="3"/><path d="M52 50 L60 42 L68 50" fill="none" stroke="#52525b" stroke-width="3" stroke-linecap="round"/></svg>`
+                tag: "Más vendido",
+                compatText: "iPhone 16 Series",
+                graphic: `<svg viewBox="0 0 100 100"><rect x="30" y="10" width="40" height="80" rx="10" fill="#111" stroke="#333" stroke-width="2"/><circle cx="50" cy="50" r="12" fill="none" stroke="#555" stroke-width="2"/></svg>`
             },
             {
                 id: 2,
@@ -710,9 +674,9 @@
                 model: "todos",
                 price: 24000,
                 oldPrice: null,
-                badge: "Original",
-                compatText: "Todos los modelos de iPhone",
-                graphic: `<svg viewBox="0 0 120 120"><rect x="35" y="30" width="50" height="60" rx="8" fill="#f4f4f5"/><rect x="50" y="15" width="8" height="15" fill="#d4d4d8"/><rect x="62" y="15" width="8" height="15" fill="#d4d4d8"/><circle cx="60" cy="75" r="6" fill="#71717a"/></svg>`
+                tag: "Original",
+                compatText: "Todos los iPhone",
+                graphic: `<svg viewBox="0 0 100 100"><rect x="35" y="30" width="30" height="40" rx="6" fill="#fff" stroke="#ccc" stroke-width="2"/><rect x="44" y="18" width="4" height="12" fill="#bbb"/><rect x="52" y="18" width="4" height="12" fill="#bbb"/></svg>`
             },
             {
                 id: 3,
@@ -721,9 +685,9 @@
                 model: "15",
                 price: 17500,
                 oldPrice: 21000,
-                badge: "Oferta",
-                compatText: "Compatible con iPhone 15 / 15 Pro",
-                graphic: `<svg viewBox="0 0 120 120"><rect x="35" y="10" width="50" height="100" rx="14" fill="none" stroke="#60a5fa" stroke-width="4"/><circle cx="60" cy="60" r="18" fill="none" stroke="#60a5fa" stroke-width="3"/></svg>`
+                tag: "Oferta",
+                compatText: "iPhone 15 / 15 Pro",
+                graphic: `<svg viewBox="0 0 100 100"><rect x="30" y="10" width="40" height="80" rx="10" fill="none" stroke="#0066cc" stroke-width="3"/><circle cx="50" cy="50" r="12" fill="none" stroke="#0066cc" stroke-width="2"/></svg>`
             },
             {
                 id: 4,
@@ -732,20 +696,20 @@
                 model: "todos",
                 price: 18500,
                 oldPrice: null,
-                badge: "",
-                compatText: "Carga y sincronización rápida",
-                graphic: `<svg viewBox="0 0 120 120"><path d="M20 90 Q 60 20, 100 90" fill="none" stroke="#94a3b8" stroke-width="5" stroke-linecap="round"/><rect x="52" y="78" width="16" height="12" rx="3" fill="#e2e8f0"/></svg>`
+                tag: "",
+                compatText: "Carga rápida",
+                graphic: `<svg viewBox="0 0 100 100"><path d="M25 75 Q 50 25, 75 75" fill="none" stroke="#888" stroke-width="4"/><rect x="43" y="65" width="14" height="10" rx="2" fill="#bbb"/></svg>`
             },
             {
                 id: 5,
-                title: "Vidrio Templado Cerámico 9H",
+                title: "Vidrio Templado Premium 9H",
                 category: "Protección",
                 model: "14",
                 price: 9000,
                 oldPrice: 12000,
-                badge: "Promo",
-                compatText: "Compatible con iPhone 14 Series",
-                graphic: `<svg viewBox="0 0 120 120"><rect x="32" y="12" width="56" height="96" rx="10" fill="rgba(37, 99, 235, 0.2)" stroke="#3b82f6" stroke-width="2"/><path d="M45 12 L75 12" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg>`
+                tag: "Promo",
+                compatText: "iPhone 14 Series",
+                graphic: `<svg viewBox="0 0 100 100"><rect x="32" y="12" width="36" height="76" rx="8" fill="rgba(0,102,204,0.1)" stroke="#0066cc" stroke-width="2"/><circle cx="50" cy="20" r="3" fill="#0066cc"/></svg>`
             },
             {
                 id: 6,
@@ -754,9 +718,9 @@
                 model: "16",
                 price: 46000,
                 oldPrice: 54000,
-                badge: "Nuevo",
-                compatText: "Inalámbrico magnético portátil",
-                graphic: `<svg viewBox="0 0 120 120"><rect x="35" y="25" width="50" height="70" rx="10" fill="#27272a" stroke="#52525b" stroke-width="2"/><circle cx="60" cy="60" r="14" fill="none" stroke="#94a3b8" stroke-width="3"/></svg>`
+                tag: "Nuevo",
+                compatText: "Magnético Inalámbrico",
+                graphic: `<svg viewBox="0 0 100 100"><rect x="30" y="25" width="40" height="55" rx="8" fill="#e5e5ea" stroke="#ccc" stroke-width="2"/><circle cx="50" cy="52" r="10" fill="none" stroke="#888" stroke-width="2"/></svg>`
             }
         ];
 
@@ -777,31 +741,29 @@
             });
 
             if (filtered.length === 0) {
-                grid.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding:60px; color:var(--text-muted);">No se encontraron productos para esta selección.</div>`;
+                grid.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding:50px; color:var(--text-muted);">No se encontraron productos disponibles.</div>`;
                 return;
             }
 
             grid.innerHTML = filtered.map(item => {
-                const badgeHtml = item.badge ? `<div class="product-badge ${item.badge === 'Promo' || item.badge === 'Oferta' ? 'sale' : ''}">${item.badge}</div>` : '';
+                const tagHtml = item.tag ? `<div class="product-tag ${item.tag === 'Promo' || item.tag === 'Oferta' ? 'sale' : ''}">${item.tag}</div>` : '';
                 const priceHtml = item.oldPrice 
                     ? `<span class="price-old">${formatMoney(item.oldPrice)}</span><span class="price-current">${formatMoney(item.price)}</span>`
                     : `<span class="price-current">${formatMoney(item.price)}</span>`;
 
                 return `
-                    <div class="product-card">
-                        ${badgeHtml}
-                        <div class="product-graphics">
+                    <div class="card-product">
+                        ${tagHtml}
+                        <div class="product-image-box">
                             ${item.graphic}
                         </div>
-                        <div class="product-info">
-                            <span class="product-category">${item.category}</span>
+                        <div class="product-details">
+                            <span class="product-cat">${item.category}</span>
                             <h3 class="product-name">${item.title}</h3>
-                            <span class="product-compatibility">${item.compatText}</span>
-                            <div class="product-bottom">
-                                <div>
-                                    ${priceHtml}
-                                </div>
-                                <button class="btn-add-cart" onclick="addToCart(${item.id})">Agregar</button>
+                            <span class="product-model-tag">${item.compatText}</span>
+                            <div class="product-action-row">
+                                <div>${priceHtml}</div>
+                                <button class="btn-add" onclick="addToCart(${item.id})">Agregar</button>
                             </div>
                         </div>
                     </div>
@@ -811,7 +773,7 @@
 
         function setCategory(category, event) {
             currentCategory = category;
-            document.querySelectorAll('.filter-tab').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.filter-chip').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
             renderProducts();
         }
@@ -821,7 +783,7 @@
             renderProducts();
         }
 
-        // Drawer del Carrito
+        // Drawer
         const overlay = document.getElementById('cartOverlay');
         const drawer = document.getElementById('cartDrawer');
 
@@ -840,9 +802,9 @@
         }
 
         function showToast() {
-            const toast = document.getElementById('toast-notification');
+            const toast = document.getElementById('toast-alert');
             toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 2500);
+            setTimeout(() => toast.classList.remove('show'), 2200);
         }
 
         window.addToCart = (id) => {
@@ -880,11 +842,11 @@
             container.innerHTML = cart.map(item => {
                 total += item.price * item.qty;
                 return `
-                    <div class="cart-item-row">
+                    <div class="cart-item-card">
                         <div class="cart-item-thumb">
                             ${item.graphic}
                         </div>
-                        <div class="cart-item-details">
+                        <div class="cart-item-info">
                             <h4>${item.title}</h4>
                             <span>${item.qty} x ${formatMoney(item.price)}</span>
                         </div>
@@ -912,7 +874,6 @@
             window.open(`https://wa.me/5493794345594?text=${text}`, '_blank');
         }
 
-        // Renderizado inicial
         renderProducts();
     </script>
 </body>
