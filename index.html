@@ -390,20 +390,23 @@
         .product-badge.sale { background: var(--danger); border-color: transparent; }
 
         .product-image-box {
-            height: 300px;
-            background: var(--bg-surface);
+            height: 280px;
+            background: radial-gradient(circle at center, rgba(37,99,235,0.08) 0%, var(--bg-surface) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: relative;
-            overflow: hidden;
+            padding: 24px;
         }
 
-        .product-image-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        .product-image-box svg {
+            width: 130px;
+            height: 130px;
+            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.4));
+            transition: var(--transition);
         }
 
-        .product-card:hover .product-image-box img { transform: scale(1.08); }
+        .product-card:hover .product-image-box svg { transform: scale(1.1) rotate(2deg); }
 
         .product-info {
             padding: 28px;
@@ -580,8 +583,8 @@
 
         .modal-overlay.active .modal-card { transform: scale(1); }
 
-        .modal-image-side { background: var(--bg-surface); position: hidden; }
-        .modal-image-side img { width: 100%; height: 100%; object-fit: cover; min-height: 400px; }
+        .modal-image-side { background: var(--bg-surface); display: flex; align-items: center; justify-content: center; padding: 40px; }
+        .modal-image-side svg { width: 220px; height: 220px; }
 
         .modal-content-side { padding: 50px; display: flex; flex-direction: column; justify-content: center; }
 
@@ -693,11 +696,13 @@
             width: 60px;
             height: 60px;
             border-radius: 8px;
-            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background: var(--bg-card);
         }
 
-        .cart-item-thumb img { width: 100%; height: 100%; object-fit: cover; }
+        .cart-item-thumb svg { width: 34px; height: 34px; }
 
         .cart-item-details { flex: 1; }
         .cart-item-details h4 { font-size: 0.98rem; font-weight: 900; margin-bottom: 2px; }
@@ -826,7 +831,6 @@
             .hero-banner h1 { font-size: 2.6rem; }
             .device-bar-inner { flex-direction: column; gap: 8px; }
             .modal-card { grid-template-columns: 1fr; }
-            .modal-image-side img { min-height: 250px; }
         }
     </style>
 </head>
@@ -922,7 +926,7 @@
     <!-- Products Showcase Grid -->
     <section class="catalog-wrapper">
         <div class="products-grid" id="productGrid">
-            <!-- Inyectado dinámicamente con fotos reales de alta calidad -->
+            <!-- Inyectado dinámicamente -->
         </div>
     </section>
 
@@ -1043,7 +1047,7 @@
                 oldPrice: 23000,
                 tag: "Más vendido",
                 compatText: "iPhone 16 Series",
-                image: "https://images.unsplash.com/photo-1603535358552-bde783494ffb?auto=format&fit=crop&w=700&q=80"
+                graphic: `<svg viewBox="0 0 100 100"><rect x="30" y="10" width="40" height="80" rx="12" fill="#27272a" stroke="#3f3f46" stroke-width="2"/><circle cx="50" cy="50" r="14" fill="none" stroke="#71717a" stroke-width="2"/></svg>`
             },
             {
                 id: 2,
@@ -1054,7 +1058,7 @@
                 oldPrice: null,
                 tag: "Original",
                 compatText: "Todos los iPhone",
-                image: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=700&q=80"
+                graphic: `<svg viewBox="0 0 100 100"><rect x="35" y="28" width="30" height="42" rx="6" fill="#f4f4f5" stroke="#d4d4d8" stroke-width="2"/><rect x="43" y="16" width="4" height="12" fill="#a1a1aa"/><rect x="53" y="16" width="4" height="12" fill="#a1a1aa"/></svg>`
             },
             {
                 id: 3,
@@ -1065,7 +1069,7 @@
                 oldPrice: 21000,
                 tag: "Oferta",
                 compatText: "iPhone 15 / 15 Pro",
-                image: "https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&w=700&q=80"
+                graphic: `<svg viewBox="0 0 100 100"><rect x="30" y="10" width="40" height="80" rx="12" fill="none" stroke="#2563eb" stroke-width="3"/><circle cx="50" cy="50" r="14" fill="none" stroke="#2563eb" stroke-width="2"/></svg>`
             },
             {
                 id: 4,
@@ -1076,7 +1080,7 @@
                 oldPrice: null,
                 tag: "",
                 compatText: "Carga rápida certificada",
-                image: "https://images.unsplash.com/photo-1544652478-6653e09f18a2?auto=format&fit=crop&w=700&q=80"
+                graphic: `<svg viewBox="0 0 100 100"><path d="M25 75 Q 50 25, 75 75" fill="none" stroke="#94a3b8" stroke-width="4"/><rect x="43" y="65" width="14" height="10" rx="2" fill="#cbd5e1"/></svg>`
             },
             {
                 id: 5,
@@ -1087,7 +1091,7 @@
                 oldPrice: 12000,
                 tag: "Promo",
                 compatText: "iPhone 14 Series",
-                image: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=700&q=80"
+                graphic: `<svg viewBox="0 0 100 100"><rect x="32" y="12" width="36" height="76" rx="8" fill="rgba(37,99,235,0.15)" stroke="#2563eb" stroke-width="2"/><circle cx="50" cy="20" r="3" fill="#2563eb"/></svg>`
             },
             {
                 id: 6,
@@ -1098,7 +1102,7 @@
                 oldPrice: 54000,
                 tag: "Nuevo",
                 compatText: "Magnético Inalámbrico",
-                image: "https://images.unsplash.com/photo-1609592424155-22d7d8e64c39?auto=format&fit=crop&w=700&q=80"
+                graphic: `<svg viewBox="0 0 100 100"><rect x="30" y="25" width="40" height="55" rx="8" fill="#3f3f46" stroke="#71717a" stroke-width="2"/><circle cx="50" cy="52" r="10" fill="none" stroke="#94a3b8" stroke-width="2"/></svg>`
             },
             {
                 id: 7,
@@ -1109,7 +1113,7 @@
                 oldPrice: 72000,
                 tag: "Destacado",
                 compatText: "Compatible con Apple Eco",
-                image: "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?auto=format&fit=crop&w=700&q=80"
+                graphic: `<svg viewBox="0 0 100 100"><rect x="32" y="32" width="36" height="36" rx="10" fill="#27272a" stroke="#3f3f46" stroke-width="2"/><circle cx="50" cy="50" r="6" fill="#fff"/></svg>`
             },
             {
                 id: 8,
@@ -1120,7 +1124,7 @@
                 oldPrice: null,
                 tag: "Premium",
                 compatText: "iPhone 13 Series",
-                image: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=700&q=80"
+                graphic: `<svg viewBox="0 0 100 100"><rect x="30" y="10" width="40" height="80" rx="12" fill="#8e5b3a" stroke="#6b4424" stroke-width="2"/><circle cx="50" cy="50" r="14" fill="none" stroke="#fff" stroke-width="2"/></svg>`
             }
         ];
 
@@ -1159,7 +1163,7 @@
                     <div class="product-card">
                         ${badgeHTML}
                         <div class="product-image-box">
-                            <img src="${prod.image}" alt="${prod.title}" loading="lazy">
+                            ${prod.graphic}
                         </div>
                         <div class="product-info">
                             <span class="product-category">${prod.category}</span>
@@ -1215,7 +1219,7 @@
         function openModal(id) {
             const item = storeProducts.find(p => p.id === id);
             if (!item) return;
-            document.getElementById('modalImgBox').innerHTML = `<img src="${item.image}" alt="${item.title}">`;
+            document.getElementById('modalImgBox').innerHTML = item.graphic;
             document.getElementById('modalCat').textContent = item.category;
             document.getElementById('modalTitle').textContent = item.title;
             document.getElementById('modalCompat').textContent = item.compatText;
@@ -1303,7 +1307,7 @@
                 subtotal += item.price * item.qty;
                 return `
                     <div class="cart-item-row">
-                        <div class="cart-item-thumb"><img src="${item.image}" alt="${item.title}"></div>
+                        <div class="cart-item-thumb">${item.graphic}</div>
                         <div class="cart-item-details">
                             <h4>${item.title}</h4>
                             <span>${formatARS(item.price)} c/u</span>
