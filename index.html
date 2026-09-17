@@ -483,71 +483,6 @@
 
         .btn-add:hover { background: var(--accent); color: #fff; transform: scale(1.05); }
 
-        /* Reviews Section */
-        .reviews-section {
-            background: var(--bg-surface);
-            padding: 100px 24px;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .reviews-container { max-width: 1350px; margin: 0 auto; }
-        .reviews-container h2 { text-align: center; font-size: 2.8rem; font-weight: 900; margin-bottom: 50px; letter-spacing: -1.5px; }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-            gap: 35px;
-        }
-
-        .review-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 35px;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .review-stars { color: #f59e0b; font-size: 1.2rem; margin-bottom: 16px; }
-        .review-text { font-size: 0.98rem; color: var(--text-muted); margin-bottom: 22px; font-style: italic; }
-        .review-author { font-size: 0.95rem; font-weight: 900; color: var(--text-main); }
-        .review-verified { font-size: 0.78rem; color: var(--accent); margin-left: 8px; font-weight: 800; }
-
-        /* FAQ Accordion */
-        .faq-section { padding: 110px 24px; max-width: 950px; margin: 0 auto; }
-        .faq-section h2 { text-align: center; font-size: 2.8rem; font-weight: 900; margin-bottom: 50px; letter-spacing: -1.5px; }
-
-        .faq-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            margin-bottom: 18px;
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .faq-question {
-            padding: 26px 32px;
-            font-size: 1.1rem;
-            font-weight: 900;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .faq-question:hover { color: var(--accent); }
-
-        .faq-answer {
-            padding: 0 32px 26px;
-            color: var(--text-muted);
-            font-size: 0.98rem;
-            display: none;
-        }
-
-        .faq-card.open .faq-answer { display: block; }
-
         /* Quick View Modal */
         .modal-overlay {
             position: fixed;
@@ -824,34 +759,23 @@
         }
 
         footer p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.8; max-width: 650px; margin: 0 auto; }
-
-        @media (max-width: 768px) {
-            .nav-container { padding: 14px 20px; }
-            .search-wrapper { display: none; }
-            .hero-banner h1 { font-size: 2.6rem; }
-            .device-bar-inner { flex-direction: column; gap: 8px; }
-            .modal-card { grid-template-columns: 1fr; }
-        }
     </style>
 </head>
 <body>
 
-    <!-- Top Ticker -->
     <div class="top-ticker">
         🔥 3 cuotas sin interés con todas las tarjetas + Envío Gratis en compras superiores a $50.000
     </div>
 
-    <!-- Header -->
     <header>
         <div class="nav-container">
             <div class="logo-area">
-                <img src="LOGOGMN.png" alt="GMN Store" onerror="this.style.display='none'; document.getElementById('logoFallbackText').style.display='block';">
-                <span id="logoFallbackText" class="logo-fallback" style="display:none;">GMN STORE</span>
+                <span class="logo-fallback">GMN STORE</span>
             </div>
 
             <div class="search-wrapper">
                 <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-                <input type="text" id="liveSearch" placeholder="Buscar fundas MagSafe, cargadores, AirPods..." oninput="handleSearch()">
+                <input type="text" id="liveSearch" placeholder="Buscar fundas MagSafe, cargadores..." oninput="handleSearch()">
             </div>
 
             <div class="nav-actions">
@@ -864,7 +788,6 @@
         </div>
     </header>
 
-    <!-- Device Model Sub-Bar -->
     <div class="device-bar">
         <div class="device-bar-inner">
             <span>📱 Filtrar accesorios por modelo de iPhone:</span>
@@ -878,34 +801,14 @@
         </div>
     </div>
 
-    <!-- Hero Banner -->
     <section class="hero-banner">
         <div class="hero-content">
             <h1>Tecnología y Diseño <span>para tu iPhone</span></h1>
-            <p>Accesorios de máxima calidad, conectividad magnética MagSafe y potencia superior diseñada para tu ecosistema.</p>
+            <p>Accesorios de máxima calidad, conectividad magnética MagSafe y potencia superior.</p>
             <a href="#catalogo" class="hero-cta">Explorar Catálogo Completo</a>
         </div>
     </section>
 
-    <!-- Trust Strip -->
-    <section class="trust-strip">
-        <div class="trust-grid">
-            <div class="trust-card">
-                <h4>🚀 Envíos a todo el país</h4>
-                <p>Despacho inmediato en 24 horas hábiles.</p>
-            </div>
-            <div class="trust-card">
-                <h4>💳 3 Cuotas Sin Interés</h4>
-                <p>Disponible con todas las tarjetas de crédito.</p>
-            </div>
-            <div class="trust-card">
-                <h4>🛡️ Garantía Oficial GMN</h4>
-                <p>Productos certificados y rigurosamente testeados.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Catalog Controls -->
     <div class="catalog-controls" id="catalogo">
         <div class="category-pills">
             <button class="cat-pill active" onclick="setCategory('todos', event)">Todos</button>
@@ -923,55 +826,10 @@
         </div>
     </div>
 
-    <!-- Products Showcase Grid -->
     <section class="catalog-wrapper">
-        <div class="products-grid" id="productGrid">
-            <!-- Inyectado dinámicamente -->
-        </div>
+        <div class="products-grid" id="productGrid"></div>
     </section>
 
-    <!-- Client Reviews Section -->
-    <section class="reviews-section">
-        <div class="reviews-container">
-            <h2>Lo que dicen nuestros clientes</h2>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"La funda MagSafe calza perfecta en el iPhone 16 Pro y el imán agarra con muchísima fuerza. Calidad superior."</p>
-                    <span class="review-author">Lucas M.</span><span class="review-verified">✓ Compra verificada</span>
-                </div>
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Compré el cargador de 20W y un cable mallado. Carga rapidísimo y se nota que es original. Excelente atención."</p>
-                    <span class="review-author">Sofía R.</span><span class="review-verified">✓ Compra verificada</span>
-                </div>
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Muy recomendable GMN Store. Los precios son súper competitivos, pude pagar en cuotas y llegó rapidísimo a Corrientes."</p>
-                    <span class="review-author">Esteban G.</span><span class="review-verified">✓ Compra verificada</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Accordion -->
-    <section class="faq-section" id="faq">
-        <h2>Preguntas Frecuentes</h2>
-        <div class="faq-card">
-            <div class="faq-question" onclick="toggleFaq(this)">¿Los accesorios son compatibles con MagSafe? <span>+</span></div>
-            <div class="faq-answer">Sí, todos nuestros productos de la línea MagSafe cuentan con anillos magnéticos integrados de alta potencia, garantizando alineación perfecta con cargadores inalámbricos.</div>
-        </div>
-        <div class="faq-card">
-            <div class="faq-question" onclick="toggleFaq(this)">¿Cómo funciona la compra por WhatsApp? <span>+</span></div>
-            <div class="faq-answer">Al armar tu carrito y hacer clic en el botón de WhatsApp, se generará un mensaje estructurado con todo tu pedido detallado para coordinar el pago y envío al instante.</div>
-        </div>
-        <div class="faq-card">
-            <div class="faq-question" onclick="toggleFaq(this)">¿Realizan envíos a todo el país? <span>+</span></div>
-            <div class="faq-answer">Sí, despachamos todos los días hábiles a través de correo privado con código de seguimiento online.</div>
-        </div>
-    </section>
-
-    <!-- Quick View Modal -->
     <div class="modal-overlay" id="quickModal">
         <div class="modal-card">
             <button class="modal-close" onclick="closeModal()">&times;</button>
@@ -980,14 +838,13 @@
                 <span class="product-category" id="modalCat"></span>
                 <h2 id="modalTitle" style="font-size: 1.7rem; font-weight: 900; margin-bottom: 10px;"></h2>
                 <div id="modalCompat" class="product-compat" style="margin-bottom: 16px;"></div>
-                <p style="color: var(--text-muted); font-size: 0.98rem; margin-bottom: 25px;">Fabricado con materiales premium para ofrecer máxima protección contra impactos y desgaste diario manteniendo un perfil estético impecable.</p>
+                <p style="color: var(--text-muted); font-size: 0.98rem; margin-bottom: 25px;">Fabricado con materiales premium para máxima protección contra impactos.</p>
                 <div id="modalPrice" style="font-size: 1.5rem; font-weight: 900; margin-bottom: 25px;"></div>
                 <button class="hero-cta" id="modalAddBtn" style="width: 100%; text-align: center; padding: 15px;">Agregar al Carrito</button>
             </div>
         </div>
     </div>
 
-    <!-- Slide-Out Cart Drawer -->
     <div class="cart-overlay" id="cartOverlay"></div>
     <div class="cart-drawer" id="cartDrawer">
         <div class="cart-header">
@@ -1011,31 +868,20 @@
                 <span>Subtotal:</span>
                 <span id="subtotalVal">$0</span>
             </div>
-            <button class="btn-wa-checkout" onclick="checkoutWhatsApp()">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                Finalizar pedido por WhatsApp
-            </button>
+            <button class="btn-wa-checkout" onclick="checkoutWhatsApp()">Finalizar pedido por WhatsApp</button>
         </div>
     </div>
 
-    <!-- Floating WhatsApp Bubble -->
-    <a href="https://wa.me/5493794345594?text=Hola!%20Quiero%20consultar%20por%20accesorios%20para%20iPhone%20en%20GMN%20Store" target="_blank" class="wa-float" aria-label="WhatsApp">
-        <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    <a href="https://wa.me/5493794345594" target="_blank" class="wa-float" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" width="36" height="36" fill="white"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
     </a>
 
-    <!-- Toast Notification -->
     <div id="toast-alert">¡Producto agregado al carrito con éxito!</div>
 
-    <!-- Footer -->
     <footer>
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <h3 style="font-size: 1.25rem; font-weight: 900; margin-bottom: 8px; color: var(--text-main);">GMN STORE</h3>
-            <p>Especialistas en accesorios y tecnología para iPhone. Consultas y atención directa por WhatsApp: <strong>+54 9 3794 34-5594</strong></p>
-            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 20px;">&copy; 2026 GMN Store. Todos los derechos reservados.</p>
-        </div>
+        <p>&copy; 2026 GMN Store. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- JavaScript Engine -->
     <script>
         const storeProducts = [
             {
@@ -1047,7 +893,7 @@
                 oldPrice: 23000,
                 tag: "Más vendido",
                 compatText: "iPhone 16 Series",
-                graphic: `<svg viewBox="0 0 100 100"><rect x="30" y="10" width="40" height="80" rx="12" fill="#27272a" stroke="#3f3f46" stroke-width="2"/><circle cx="50" cy="50" r="14" fill="none" stroke="#71717a" stroke-width="2"/></svg>`
+                graphic: `<svg viewBox="0 0 100 100" width="100" height="100"><rect x="30" y="10" width="40" height="80" rx="12" fill="#27272a" stroke="#3f3f46" stroke-width="2"/><circle cx="50" cy="50" r="14" fill="none" stroke="#71717a" stroke-width="2"/></svg>`
             },
             {
                 id: 2,
@@ -1058,7 +904,7 @@
                 oldPrice: null,
                 tag: "Original",
                 compatText: "Todos los iPhone",
-                graphic: `<svg viewBox="0 0 100 100"><rect x="35" y="28" width="30" height="42" rx="6" fill="#f4f4f5" stroke="#d4d4d8" stroke-width="2"/><rect x="43" y="16" width="4" height="12" fill="#a1a1aa"/><rect x="53" y="16" width="4" height="12" fill="#a1a1aa"/></svg>`
+                graphic: `<svg viewBox="0 0 100 100" width="100" height="100"><rect x="35" y="28" width="30" height="42" rx="6" fill="#f4f4f5" stroke="#d4d4d8" stroke-width="2"/><rect x="43" y="16" width="4" height="12" fill="#a1a1aa"/><rect x="53" y="16" width="4" height="12" fill="#a1a1aa"/></svg>`
             },
             {
                 id: 3,
@@ -1069,7 +915,7 @@
                 oldPrice: 21000,
                 tag: "Oferta",
                 compatText: "iPhone 15 / 15 Pro",
-                graphic: `<svg viewBox="0 0 100 100"><rect x="30" y="10" width="40" height="80" rx="12" fill="none" stroke="#2563eb" stroke-width="3"/><circle cx="50" cy="50" r="14" fill="none" stroke="#2563eb" stroke-width="2"/></svg>`
+                graphic: `<svg viewBox="0 0 100 100" width="100" height="100"><rect x="30" y="10" width="40" height="80" rx="12" fill="none" stroke="#2563eb" stroke-width="3"/><circle cx="50" cy="50" r="14" fill="none" stroke="#2563eb" stroke-width="2"/></svg>`
             },
             {
                 id: 4,
@@ -1080,7 +926,7 @@
                 oldPrice: null,
                 tag: "",
                 compatText: "Carga rápida certificada",
-                graphic: `<svg viewBox="0 0 100 100"><path d="M25 75 Q 50 25, 75 75" fill="none" stroke="#94a3b8" stroke-width="4"/><rect x="43" y="65" width="14" height="10" rx="2" fill="#cbd5e1"/></svg>`
+                graphic: `<svg viewBox="0 0 100 100" width="100" height="100"><path d="M25 75 Q 50 25, 75 75" fill="none" stroke="#94a3b8" stroke-width="4"/><rect x="43" y="65" width="14" height="10" rx="2" fill="#cbd5e1"/></svg>`
             },
             {
                 id: 5,
@@ -1091,7 +937,7 @@
                 oldPrice: 12000,
                 tag: "Promo",
                 compatText: "iPhone 14 Series",
-                graphic: `<svg viewBox="0 0 100 100"><rect x="32" y="12" width="36" height="76" rx="8" fill="rgba(37,99,235,0.15)" stroke="#2563eb" stroke-width="2"/><circle cx="50" cy="20" r="3" fill="#2563eb"/></svg>`
+                graphic: `<svg viewBox="0 0 100 100" width="100" height="100"><rect x="32" y="12" width="36" height="76" rx="8" fill="rgba(37,99,235,0.15)" stroke="#2563eb" stroke-width="2"/><circle cx="50" cy="20" r="3" fill="#2563eb"/></svg>`
             },
             {
                 id: 6,
@@ -1102,7 +948,7 @@
                 oldPrice: 54000,
                 tag: "Nuevo",
                 compatText: "Magnético Inalámbrico",
-                graphic: `<svg viewBox="0 0 100 100"><rect x="30" y="25" width="40" height="55" rx="8" fill="#3f3f46" stroke="#71717a" stroke-width="2"/><circle cx="50" cy="52" r="10" fill="none" stroke="#94a3b8" stroke-width="2"/></svg>`
+                graphic: `<svg viewBox="0 0 100 100" width="100" height="100"><rect x="30" y="25" width="40" height="55" rx="8" fill="#3f3f46" stroke="#71717a" stroke-width="2"/><circle cx="50" cy="52" r="10" fill="none" stroke="#94a3b8" stroke-width="2"/></svg>`
             },
             {
                 id: 7,
@@ -1113,7 +959,7 @@
                 oldPrice: 72000,
                 tag: "Destacado",
                 compatText: "Compatible con Apple Eco",
-                graphic: `<svg viewBox="0 0 100 100"><rect x="32" y="32" width="36" height="36" rx="10" fill="#27272a" stroke="#3f3f46" stroke-width="2"/><circle cx="50" cy="50" r="6" fill="#fff"/></svg>`
+                graphic: `<svg viewBox="0 0 100 100" width="100" height="100"><rect x="32" y="32" width="36" height="36" rx="10" fill="#27272a" stroke="#3f3f46" stroke-width="2"/><circle cx="50" cy="50" r="6" fill="#fff"/></svg>`
             },
             {
                 id: 8,
@@ -1124,7 +970,7 @@
                 oldPrice: null,
                 tag: "Premium",
                 compatText: "iPhone 13 Series",
-                graphic: `<svg viewBox="0 0 100 100"><rect x="30" y="10" width="40" height="80" rx="12" fill="#8e5b3a" stroke="#6b4424" stroke-width="2"/><circle cx="50" cy="50" r="14" fill="none" stroke="#fff" stroke-width="2"/></svg>`
+                graphic: `<svg viewBox="0 0 100 100" width="100" height="100"><rect x="30" y="10" width="40" height="80" rx="12" fill="#8e5b3a" stroke="#6b4424" stroke-width="2"/><circle cx="50" cy="50" r="14" fill="none" stroke="#fff" stroke-width="2"/></svg>`
             }
         ];
 
@@ -1215,7 +1061,6 @@
             }
         }
 
-        /* Modal Quick View */
         function openModal(id) {
             const item = storeProducts.find(p => p.id === id);
             if (!item) return;
@@ -1235,7 +1080,6 @@
             document.getElementById('quickModal').classList.remove('active');
         }
 
-        /* Cart Drawer */
         const overlay = document.getElementById('cartOverlay');
         const drawer = document.getElementById('cartDrawer');
 
@@ -1354,13 +1198,6 @@
             msg += `%0A*Total a abonar: ${formatARS(total)}*%0A¿Cómo coordinamos el pago y envío?`;
             
             window.open(`https://wa.me/5493794345594?text=${msg}`, '_blank');
-        }
-
-        function toggleFaq(el) {
-            const card = el.parentElement;
-            card.classList.toggle('open');
-            const span = el.querySelector('span');
-            span.textContent = card.classList.contains('open') ? '-' : '+';
         }
 
         renderGrid();
